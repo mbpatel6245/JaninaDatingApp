@@ -10,12 +10,14 @@ import android.content.ContextWrapper
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
+import android.os.Build
 import android.provider.MediaStore
 import android.util.Log
 import android.view.View
 import android.view.Window
 import android.view.inputmethod.InputMethodManager
 import android.widget.ImageView
+import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
@@ -360,10 +362,15 @@ object CommonUtility {
                 .into(view)
     }
 
+
     @SuppressLint("SimpleDateFormat")
     fun convertDateFormat(format: String, source: String?): String {
         source?.let {
-            val sdf: DateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
+            val sdf: DateFormat = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
+            } else {
+                SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")
+            }
             val sdfO: DateFormat = SimpleDateFormat(format)
             val date: Date? = sdf.parse(it)
             return sdfO.format(date!!)
@@ -375,7 +382,11 @@ object CommonUtility {
         var convTime: String? = null
         val suffix = "ago"
         try {
-            val dateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
+            val dateFormat: DateFormat = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
+            } else {
+                SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")
+            }
             val pasTime = dateFormat.parse(dataDate!!)
             val nowTime = Calendar.getInstance().time
             val dateDiff = nowTime.time - pasTime!!.time
@@ -417,7 +428,11 @@ object CommonUtility {
         var convTime: String? = null
         val suffix = "ago"
         try {
-            val dateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
+            val dateFormat: DateFormat = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
+            } else {
+                SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")
+            }
             val pasTime = dateFormat.parse(dataDate!!)
             val nowTime = Calendar.getInstance().time
             val dateDiff = nowTime.time - pasTime!!.time
@@ -464,21 +479,33 @@ object CommonUtility {
 
     @SuppressLint("SimpleDateFormat")
     fun convertStringToLong(source: String): Long {
-        val sdf: DateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
+        val sdf: DateFormat = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
+        } else {
+            SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")
+        }
         val date: Date? = sdf.parse(source)
         return date!!.time
     }
 
     @SuppressLint("SimpleDateFormat")
     fun convertStringToDate(source: String): Date {
-        val sdf: DateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
+        val sdf: DateFormat = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
+        } else {
+            SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")
+        }
         val date: Date = sdf.parse(source)!!
         return date
     }
 
     @SuppressLint("SimpleDateFormat")
     fun isBeforeOneHour(source: String): Boolean {
-        val sdf: DateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
+        val sdf: DateFormat = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
+        } else {
+            SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")
+        }
         val date: Date = sdf.parse(source)!!
 
         val currentCal = Calendar.getInstance()

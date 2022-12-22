@@ -372,7 +372,7 @@ class HomeFragment : BaseFragment(), UserListAdapter.UserClickListener,
             HomeSuccessResponse::class.java -> {
                 mBinding?.shimmerFrameLayout?.visibility = View.VISIBLE
                 mBinding?.userStackView?.visibility = View.GONE
-                mBinding?.shimmerFrameLayout?.startShimmerAnimation()
+                mBinding?.shimmerFrameLayout?.startShimmer()
             }
             SubscriptionSuccessResponse::class.java -> {
                 UserAlertUtility.showProgressDialog(R.layout.progress_dialog, activity, false)
@@ -385,7 +385,7 @@ class HomeFragment : BaseFragment(), UserListAdapter.UserClickListener,
             HomeSuccessResponse::class.java -> {
                 mBinding?.userStackView?.visibility = View.VISIBLE
                 mBinding?.shimmerFrameLayout?.visibility = View.GONE
-                mBinding?.shimmerFrameLayout?.stopShimmerAnimation()
+                mBinding?.shimmerFrameLayout?.stopShimmer()
             }
             SubscriptionSuccessResponse::class.java -> {
                 UserAlertUtility.hideProgressDialog()

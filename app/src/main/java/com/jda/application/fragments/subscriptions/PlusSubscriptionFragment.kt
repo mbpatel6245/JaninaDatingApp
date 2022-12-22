@@ -246,7 +246,7 @@ class PlusSubscriptionFragment : BaseFragment() {
                             if (purchase?.purchaseState == Purchase.PurchaseState.PURCHASED) {
                                 Log.i("TAG_SUBSCRIPTION", "Subscription purchased success response")
                                 var productId: String? = null
-                                purchase?.skus.forEach {
+                                purchase.skus.forEach {
                                     productId = it.toString()
                                 }
                                 if (productId != null) {

@@ -12,6 +12,7 @@
     <!--Client's facebook id (someappdating@gmail.com)-->
     <string name="facebook_app_id">2959577400930680</string>
     <string name="fb_login_protocol_scheme">fb2959577400930680</string>
+    <string name="facebook_client_token">aefa96af0837857d56d63f7dbee9522c</string>
 
     <!--ads id dummy-->
     <!--<string name="banner_app_id">ca-app-pub-3940256099942544~3347511713 </string>

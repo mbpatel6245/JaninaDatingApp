@@ -128,7 +128,7 @@ class QuestionsAdapter(
                         result.nestedQuestions?.forEachIndexed { i: Int, nestedQuestion: NestedQuestion ->
                             Log.e("nestedQuestions", "${nestedQuestion._id} ${newItem._id}")
                             nestedQuestion?.questions?.forEachIndexed { ii: Int, question: Question ->
-                                question?.answers.forEachIndexed { index8, answerX ->
+                                question.answers.forEachIndexed { index8, answerX ->
                                     if (answerX._id == newItem._id) {
                                         mListener.onDataSelectedFromItemNested(
                                             binding.firstNestedSpinner,
@@ -196,7 +196,7 @@ class QuestionsAdapter(
                     result.nestedQuestions?.forEachIndexed { i: Int, nestedQuestion: NestedQuestion ->
                         Log.e("nestedQuestions", "${nestedQuestion._id} ${newItem._id}")
                         nestedQuestion?.questions?.forEachIndexed { ii: Int, question: Question ->
-                            question?.answers.forEachIndexed { index8, answerX ->
+                            question.answers.forEachIndexed { index8, answerX ->
                                 if (answerX._id == newItem._id) {
                                     mListener.onDataSelectedFromItemNested(
                                         binding.secondSpinner,
@@ -219,7 +219,7 @@ class QuestionsAdapter(
                     result.nestedQuestions?.forEachIndexed { i: Int, nestedQuestion: NestedQuestion ->
                         Log.e("nestedQuestions", "${nestedQuestion._id} ${newItem._id}")
                         nestedQuestion?.questions?.forEachIndexed { ii: Int, question: Question ->
-                            question?.answers.forEachIndexed { index8, answerX ->
+                            question.answers.forEachIndexed { index8, answerX ->
                                 if (answerX._id == newItem._id) {
                                     mListener.onDataSelectedFromItemNested(
                                         binding.thirdSpinner,
@@ -243,7 +243,7 @@ class QuestionsAdapter(
                     result.nestedQuestions?.forEachIndexed { i: Int, nestedQuestion: NestedQuestion ->
                         Log.e("nestedQuestions", "${nestedQuestion._id} ${newItem._id}")
                         nestedQuestion?.questions?.forEachIndexed { ii: Int, question: Question ->
-                            question?.answers.forEachIndexed { index8, answerX ->
+                            question.answers.forEachIndexed { index8, answerX ->
                                 if (answerX._id == newItem._id) {
                                     mListener.onDataSelectedFromItemNested(
                                         binding.fourthSpinner,
@@ -412,7 +412,7 @@ class QuestionsAdapter(
                                                 "${nestedQuestion._id} ${answer._id}"
                                             )
                                             nestedQuestion?.questions?.forEachIndexed { ii: Int, question: Question ->
-                                                question?.answers.forEachIndexed { index8, answerX ->
+                                                question.answers.forEachIndexed { index8, answerX ->
                                                     if (answerX._id == answer._id) {
                                                         mListener.onDataSelectedFromItemNested(
                                                             pSpinnerView,
@@ -595,7 +595,7 @@ class QuestionsAdapter(
                                         )
                                         if(pQuesList!![position].choice.uppercase() == nestedQuestion.choice) {
                                             nestedQuestion?.questions?.forEachIndexed { ii: Int, question: Question ->
-                                                question?.answers.forEachIndexed { index8, answerX ->
+                                                question.answers.forEachIndexed { index8, answerX ->
                                                     if (answerX._id == answer._id) {
                                                         mListener.onDataSelectedFromItemNested(
                                                             pSpinnerView,
@@ -623,7 +623,7 @@ class QuestionsAdapter(
                                             "${nestedQuestion._id} ${answer._id}"
                                         )
                                         nestedQuestion?.questions?.forEachIndexed { ii: Int, question: Question ->
-                                            question?.answers.forEachIndexed { index8, answerX ->
+                                            question.answers.forEachIndexed { index8, answerX ->
                                                 if (answerX._id == answer._id) {
                                                     mListener.onDataSelectedFromItemNested(
                                                         pSpinnerView,
@@ -649,7 +649,7 @@ class QuestionsAdapter(
                                         )
                                         if(pQuesList!![position].choice.uppercase() == nestedQuestion.choice) {
                                             nestedQuestion?.questions?.forEachIndexed { ii: Int, question: Question ->
-                                                question?.answers.forEachIndexed { index8, answerX ->
+                                                question.answers.forEachIndexed { index8, answerX ->
                                                     if (answerX._id == answer._id) {
                                                         mListener.onDataSelectedFromItemNested(
                                                             pSpinnerView,

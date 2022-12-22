@@ -39,6 +39,7 @@ import com.rizlee.rangeseekbar.RangeSeekBar
 import com.skydoves.powerspinner.PowerSpinnerView
 import kotlinx.android.synthetic.main.fragment_preferences.*
 import okhttp3.MediaType
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import java.io.File
@@ -167,7 +168,7 @@ class EditProfileFragment : BaseFragment(), OnItemClickListener,
             }
         }
         if (myPResponse != null) {
-            for (i in 0 until myPResponse!!.result.gallery?.size) {
+            for (i in 0 until (myPResponse?.result?.gallery?.size?:0)) {
                 multiImageArrayList.add(
                         UploadGalleryRequest(
                                 myPResponse!!.result.gallery[i],
@@ -226,7 +227,7 @@ class EditProfileFragment : BaseFragment(), OnItemClickListener,
                 builder.addFormDataPart(
                         "files",
                         file.name,
-                        RequestBody.create(MediaType.parse("multipart/form-data"), file)
+                        RequestBody.create("multipart/form-data".toMediaTypeOrNull(), file)
                 )
             }
         }
@@ -703,7 +704,7 @@ class EditProfileFragment : BaseFragment(), OnItemClickListener,
     private fun convertFeetStrInInches(pChooseString: String?): String {
         if (!pChooseString!!.isDigitsOnly()) {
 
-            if (pChooseString.substring(pChooseString?.lastIndex - 1).equals("\"+")) {
+            if (pChooseString.substring(pChooseString.lastIndex - 1).equals("\"+")) {
                 return ((pChooseString.substring(0, 1)).trim()
                         .toInt() * 12 + pChooseString.substring(
                         2,
@@ -783,7 +784,7 @@ class EditProfileFragment : BaseFragment(), OnItemClickListener,
     private fun gotImage(mImageUrl: String?) {
         val file = File(mImageUrl!!)
         val requestFile: RequestBody =
-                RequestBody.create(MediaType.parse("multipart/form-data"), file)
+                RequestBody.create("multipart/form-data".toMediaTypeOrNull(), file)
         val body = MultipartBody.Part.createFormData("file", file.name, requestFile)
         mPreferencesPresenter?.apiUploadFile(body)
     }

@@ -55,8 +55,8 @@ class FacebookLoginActivity : BaseActivity() {
     private fun onFacebookLogin() {
         Log.i(Constants.LOG_TAG, "FacebookLoginActivity, onFacebookLogin: ")
         LoginManager.getInstance().registerCallback(mCallbackManager,
-                object : FacebookCallback<LoginResult?> {
-                    override fun onSuccess(loginResult: LoginResult?) {
+                object : FacebookCallback<LoginResult> {
+                    override fun onSuccess(loginResult: LoginResult) {
                         Log.i(Constants.LOG_TAG, "FacebookLoginActivity, onSuccess: ")
                         if (loginResult != null) {
                             mAccessToken = loginResult.accessToken.toString()
@@ -77,6 +77,7 @@ class FacebookLoginActivity : BaseActivity() {
                         Log.i("_response", "error")
                         Log.i(Constants.LOG_TAG, "FacebookLoginActivity, onError: ${exception.printStackTrace()}")
                     }
+
                 })
     }
 

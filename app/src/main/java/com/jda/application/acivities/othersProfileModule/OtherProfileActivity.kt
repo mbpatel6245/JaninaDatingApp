@@ -232,7 +232,7 @@ class OtherProfileActivity : BaseActivity(), View.OnClickListener {
             OtherUserProfileResponse::class.java -> {
                 shimmerFrameLayoutOtherProfile?.visibility = View.VISIBLE
                 mainNSVOtherProfile?.visibility = View.GONE
-                shimmerFrameLayoutOtherProfile?.startShimmerAnimation()
+                shimmerFrameLayoutOtherProfile?.startShimmer()
             }
         }
     }
@@ -242,7 +242,7 @@ class OtherProfileActivity : BaseActivity(), View.OnClickListener {
             OtherUserProfileResponse::class.java -> {
                 mainNSVOtherProfile.visibility = View.VISIBLE
                 shimmerFrameLayoutOtherProfile?.visibility = View.GONE
-                shimmerFrameLayoutOtherProfile?.stopShimmerAnimation()
+                shimmerFrameLayoutOtherProfile?.stopShimmer()
             }
         }
     }

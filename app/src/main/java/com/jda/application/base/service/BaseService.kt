@@ -31,12 +31,12 @@ object BaseService {
                                 .addHeader("app_version_name", BuildConfig.VERSION_NAME)
                                 .addHeader("app_version_code", "${BuildConfig.VERSION_CODE}")
                                 .addHeader("app_device_type", "0")
-                                .method(original.method(), original.body())
+                                .method(original.method, original.body)
                 val request = requestBuilder.build()
-                Log.e(Constants.Logger.sUrlRequest, request.url().toString())
-                Log.i(Constants.LOG_TAG, "UrlRequest:" + request.url().toString())
+                Log.e(Constants.Logger.sUrlRequest, request.url.toString())
+                Log.i(Constants.LOG_TAG, "UrlRequest:" + request.url.toString())
                 val params = Bundle().apply {
-                    putString("UrlRequest", request.url().toString())
+                    putString("UrlRequest", request.url.toString())
                 }
                 FirebaseLogsUtil.setLogs(Constants.LOG_TAG, params)
                 chain.proceed(request)
@@ -52,7 +52,7 @@ object BaseService {
                         original.newBuilder()
                                 .addHeader(URLs.Retrofit.sContentType, URLs.Retrofit.sContentTypeJson)
                                 .addHeader(URLs.Retrofit.sXRequestWith, URLs.Retrofit.sXmlHttpRequest)
-                                .method(original.method(), original.body())
+                                .method(original.method, original.body)
                 val request = requestBuilder.build()
                 chain.proceed(request)
             }

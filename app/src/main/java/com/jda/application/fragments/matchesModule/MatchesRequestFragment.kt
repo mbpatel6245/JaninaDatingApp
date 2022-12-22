@@ -358,7 +358,7 @@ class MatchesRequestFragment : BaseFragment(), MatchesListAdapter.MatchesRequest
             MatchesListSuccessModel::class.java -> {
                 mBinding?.shimmerFrameLayout?.visibility = View.VISIBLE
                 mBinding?.matchesListRV?.visibility = View.GONE
-                mBinding?.shimmerFrameLayout?.startShimmerAnimation()
+                mBinding?.shimmerFrameLayout?.startShimmer()
             }
         }
     }
@@ -368,7 +368,7 @@ class MatchesRequestFragment : BaseFragment(), MatchesListAdapter.MatchesRequest
             MatchesListSuccessModel::class.java -> {
                 mBinding?.shimmerFrameLayout?.visibility = View.GONE
                 mBinding?.matchesListRV?.visibility = View.VISIBLE
-                mBinding?.shimmerFrameLayout?.stopShimmerAnimation()
+                mBinding?.shimmerFrameLayout?.stopShimmer()
             }
         }
     }

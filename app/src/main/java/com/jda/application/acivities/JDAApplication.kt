@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
+import com.facebook.FacebookSdk
 import com.google.android.libraries.places.api.Places
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.analytics.ktx.analytics
@@ -51,6 +52,7 @@ class JDAApplication : Application(), Application.ActivityLifecycleCallbacks {
 
     override fun onCreate() {
         super.onCreate()
+        FacebookSdk.sdkInitialize(getApplicationContext());
         mInstance = this
         socketHelperObject = SocketHelper()
         firebaseAnalytics = Firebase.analytics
@@ -133,6 +135,7 @@ class JDAApplication : Application(), Application.ActivityLifecycleCallbacks {
                 this.mFragmentTransaction?.replace(containerId, fragment, tag)
                 when (isAddedTobackStack) {
                     true -> mFragmentTransaction?.addToBackStack(tag)
+                    else -> {}
                 }
             }
             Constants.FragmentAction.REMOVE -> {

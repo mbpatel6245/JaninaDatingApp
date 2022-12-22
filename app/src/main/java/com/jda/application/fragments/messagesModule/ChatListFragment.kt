@@ -254,7 +254,7 @@ class ChatListFragment : BaseFragment(), OnItemClickListener, ChatListAdapter.Ca
             ChatListSuccessModel::class.java -> {
                 mBinding?.shimmerFrameLayout?.visibility = View.VISIBLE
                 mBinding?.chatListRV?.visibility = View.GONE
-                mBinding?.shimmerFrameLayout?.startShimmerAnimation()
+                mBinding?.shimmerFrameLayout?.startShimmer()
             }
         }
     }
@@ -264,7 +264,7 @@ class ChatListFragment : BaseFragment(), OnItemClickListener, ChatListAdapter.Ca
             ChatListSuccessModel::class.java -> {
                 mBinding?.shimmerFrameLayout?.visibility = View.GONE
                 mBinding?.chatListRV?.visibility = View.VISIBLE
-                mBinding?.shimmerFrameLayout?.stopShimmerAnimation()
+                mBinding?.shimmerFrameLayout?.stopShimmer()
             }
         }
     }

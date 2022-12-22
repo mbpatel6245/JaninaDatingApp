@@ -155,8 +155,8 @@ class EditQuestionsAdapter(
                     pQuesList?.forEachIndexed { index, result ->
                         result.nestedQuestions?.forEachIndexed { i: Int, nestedQuestion: NestedQuestion ->
                             Log.e("nestedQuestions", "${nestedQuestion._id} ${newItem._id}")
-                            nestedQuestion?.questions?.forEachIndexed { ii: Int, question: Question ->
-                                question?.answers.forEachIndexed { index8, answerX ->
+                            nestedQuestion.questions?.forEachIndexed { ii: Int, question: Question ->
+                                question.answers.forEachIndexed { index8, answerX ->
                                     if (answerX._id == newItem._id) {
                                         mListener.onDataSelectedFromItemNested(
                                                 binding.firstNestedSpinner,
@@ -222,8 +222,8 @@ class EditQuestionsAdapter(
                 pQuesList?.forEachIndexed { index, result ->
                     result.nestedQuestions?.forEachIndexed { i: Int, nestedQuestion: NestedQuestion ->
                         Log.e("nestedQuestions", "${nestedQuestion._id} ${newItem._id}")
-                        nestedQuestion?.questions?.forEachIndexed { ii: Int, question: Question ->
-                            question?.answers.forEachIndexed { index8, answerX ->
+                        nestedQuestion.questions?.forEachIndexed { ii: Int, question: Question ->
+                            question.answers.forEachIndexed { index8, answerX ->
                                 if (answerX._id == newItem._id) {
                                     mListener.onDataSelectedFromItemNested(
                                             binding.secondSpinner,
@@ -245,7 +245,7 @@ class EditQuestionsAdapter(
                     result.nestedQuestions?.forEachIndexed { i: Int, nestedQuestion: NestedQuestion ->
                         Log.e("nestedQuestions", "${nestedQuestion._id} ${newItem._id}")
                         nestedQuestion?.questions?.forEachIndexed { ii: Int, question: Question ->
-                            question?.answers.forEachIndexed { index8, answerX ->
+                            question.answers.forEachIndexed { index8, answerX ->
                                 if (answerX._id == newItem._id) {
                                     mListener.onDataSelectedFromItemNested(
                                             binding.thirdSpinner,
@@ -268,7 +268,7 @@ class EditQuestionsAdapter(
                     result.nestedQuestions?.forEachIndexed { i: Int, nestedQuestion: NestedQuestion ->
                         Log.e("nestedQuestions", "${nestedQuestion._id} ${newItem._id}")
                         nestedQuestion?.questions?.forEachIndexed { ii: Int, question: Question ->
-                            question?.answers.forEachIndexed { index8, answerX ->
+                            question.answers.forEachIndexed { index8, answerX ->
                                 if (answerX._id == newItem._id) {
                                     mListener.onDataSelectedFromItemNested(
                                             binding.fourthSpinner,
@@ -444,7 +444,7 @@ class EditQuestionsAdapter(
                                                         "${nestedQuestion._id} ${answer._id}"
                                                 )
                                                 nestedQuestion?.questions?.forEachIndexed { ii: Int, question: Question ->
-                                                    question?.answers.forEachIndexed { index8, answerX ->
+                                                    question.answers.forEachIndexed { index8, answerX ->
                                                         if (answerX._id == answer._id) {
                                                             mListener.onDataSelectedFromItemNested(
                                                                     pSpinnerView,
@@ -525,7 +525,7 @@ class EditQuestionsAdapter(
                                         "${nestedQuestion._id} ${answer._id}"
                                 )
                                 nestedQuestion?.questions?.forEachIndexed { ii: Int, question: Question ->
-                                    question?.answers.forEachIndexed { index8, answerX ->
+                                    question.answers.forEachIndexed { index8, answerX ->
                                         if (answerX._id == answer._id) {
                                             mListener.onDataSelectedFromItemNested(
                                                     pSpinnerView,
@@ -724,7 +724,7 @@ class EditQuestionsAdapter(
                                             )
                                             if (pQuesList!![position].choice.uppercase() == nestedQuestion.choice) {
                                                 nestedQuestion?.questions?.forEachIndexed { ii: Int, question: Question ->
-                                                    question?.answers.forEachIndexed { index8, answerX ->
+                                                    question.answers.forEachIndexed { index8, answerX ->
                                                         if (answerX._id == answer._id) {
                                                             mListener.onDataSelectedFromItemNested(
                                                                     pSpinnerView,
@@ -752,7 +752,7 @@ class EditQuestionsAdapter(
                                                     "${nestedQuestion._id} ${answer._id}"
                                             )
                                             nestedQuestion?.questions?.forEachIndexed { ii: Int, question: Question ->
-                                                question?.answers.forEachIndexed { index8, answerX ->
+                                                question.answers.forEachIndexed { index8, answerX ->
                                                     if (answerX._id == answer._id) {
                                                         mListener.onDataSelectedFromItemNested(
                                                                 pSpinnerView,
@@ -778,7 +778,7 @@ class EditQuestionsAdapter(
                                             )
                                             if (pQuesList!![position].choice.uppercase() == nestedQuestion.choice) {
                                                 nestedQuestion?.questions?.forEachIndexed { ii: Int, question: Question ->
-                                                    question?.answers.forEachIndexed { index8, answerX ->
+                                                    question.answers.forEachIndexed { index8, answerX ->
                                                         if (answerX._id == answer._id) {
                                                             mListener.onDataSelectedFromItemNested(
                                                                     pSpinnerView,

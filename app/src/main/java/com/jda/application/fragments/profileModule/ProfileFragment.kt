@@ -264,7 +264,7 @@ class ProfileFragment : BaseFragment(), OnItemClickListener {
             ProfileFetchResponse::class.java -> {
                 mBinding!!.shimmerFrameLayout.visibility = View.VISIBLE
                 mBinding!!.actualDataCL.visibility = View.GONE
-                mBinding!!.shimmerFrameLayout.startShimmerAnimation()
+                mBinding!!.shimmerFrameLayout.startShimmer()
             }
         }
     }
@@ -274,7 +274,7 @@ class ProfileFragment : BaseFragment(), OnItemClickListener {
             ProfileFetchResponse::class.java -> {
                 mBinding!!.actualDataCL.visibility = View.VISIBLE
                 mBinding!!.shimmerFrameLayout.visibility = View.GONE
-                mBinding!!.shimmerFrameLayout.stopShimmerAnimation()
+                mBinding!!.shimmerFrameLayout.stopShimmer()
             }
         }
     }
