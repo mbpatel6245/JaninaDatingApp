@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black">
+
+    <View
+        android:id="@+id/personIV"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_250sdp"
+        android:background="@color/colorLightBlack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/dislikeIV"
+        android:layout_width="@dimen/_44sdp"
+        android:layout_height="@dimen/_44sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:background="@drawable/circle_round_grey_bg"
+        app:layout_constraintBottom_toBottomOf="@id/personIV"
+        app:layout_constraintEnd_toStartOf="@id/likeIV"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="@id/personIV"
+        app:layout_constraintTop_toBottomOf="@id/personIV" />
+
+    <View
+        android:id="@+id/likeIV"
+        android:layout_width="@dimen/_44sdp"
+        android:layout_height="@dimen/_44sdp"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:background="@drawable/circle_round_grey_bg"
+        app:layout_constraintBottom_toBottomOf="@id/personIV"
+        app:layout_constraintEnd_toEndOf="@id/personIV"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/dislikeIV"
+        app:layout_constraintTop_toBottomOf="@id/personIV" />
+
+    <View
+        android:id="@+id/nameAndAgeTV"
+        android:layout_width="@dimen/_90sdp"
+        android:layout_height="@dimen/_16sdp"
+        android:layout_gravity="center"
+        android:background="@color/colorGrey"
+        app:layout_constraintBottom_toTopOf="@+id/locationTV"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/likeIV" />
+
+    <View
+        android:id="@+id/locationTV"
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="@dimen/_12sdp"
+        android:layout_marginBottom="@dimen/_12sdp"
+        android:background="@color/colorGrey"
+        app:layout_constraintBottom_toTopOf="@id/basicInfoRL"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nameAndAgeTV" />
+
+    <View
+        android:id="@+id/basicInfoRL"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_150sdp"
+        android:layout_marginHorizontal="@dimen/_16sdp"
+        android:background="@drawable/round_corner_light_black_bg"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/locationTV" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+

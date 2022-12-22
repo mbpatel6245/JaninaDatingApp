@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/root"
+    android:gravity="center"
+    android:layout_marginTop="@dimen/_7sdp"
+    android:layout_marginBottom="@dimen/_7sdp"
+    android:background="@color/black">
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/itemCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:buttonTint="@color/colorRed"/>
+    <TextView
+        android:id="@+id/item_title"
+        android:textColor="@color/white"
+        android:text="ALSAK OR NATVIE OR AFRICAN OR NEW  ANYTHING"
+        android:textSize="@dimen/_12sdp"
+        android:layout_marginHorizontal="@dimen/_4sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+</LinearLayout>
+</layout>

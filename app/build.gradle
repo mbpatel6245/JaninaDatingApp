@@ -1,0 +1,149 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlinx-serialization'
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
+}
+
+//apply plugin: 'kotlinx-serialization'
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.1"
+
+    defaultConfig {
+        applicationId "com.jda.application"
+        minSdkVersion 23
+        targetSdkVersion 30
+        versionCode 12
+        versionName "1.0.6"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        setProperty("archivesBaseName", "SomeApp" + "-v" + defaultConfig.versionCode + "(" + versionName + ")")
+    }
+
+    buildFeatures {
+        dataBinding true
+        viewBinding true
+    }
+
+    signingConfigs {
+        debug {
+            storeFile file('../keys/debug_key.jks')
+            storePassword '123123'
+            keyAlias 'someapp'
+            keyPassword '123123'
+        }
+        release {
+            storeFile file('../keys/release_key.jks')
+            storePassword 'someapp'
+            keyAlias 'someapp'
+            keyPassword 'someapp'
+        }
+    }
+
+    buildTypes {
+        release {
+        /*    debuggable true
+            signingConfig signingConfigs.release*/
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.3.2'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.3.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    /* Dimen*/
+    implementation 'com.intuit.ssp:ssp-android:1.0.6'
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+    implementation 'com.hbb20:ccp:2.4.4'
+//    implementation 'com.github.aabhasr1:OtpView:v1.1.2-ktx' // kotlin
+    /*Google Location Picker*/
+//    implementation 'com.google.android.libraries.places:places:2.4.0'
+    /*HTTP Client*/
+    implementation "com.squareup.retrofit2:retrofit:2.9.0"
+    implementation "com.squareup.retrofit2:converter-gson:2.9.0"
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.0'
+    /*Shimmer Effect*/
+    implementation 'com.facebook.shimmer:shimmer:0.1.0@aar'
+    /* Circular Image View*/
+    implementation 'com.mikhaellopez:circularimageview:4.2.0'
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+    /* View Pager 2*/
+    implementation 'androidx.viewpager2:viewpager2:1.1.0-alpha01'
+    implementation 'androidx.fragment:fragment-ktx:1.3.2'
+    /*Glide */
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
+    implementation 'jp.wasabeef:glide-transformations:4.0.0'
+    implementation 'id.zelory:compressor:2.1.0'
+    //Socket.io
+    implementation('io.socket:socket.io-client:1.0.0') {
+        exclude group: 'org.json', module: 'json'
+    }
+    //Range Seek Bar
+    implementation 'com.crystal:crystalrangeseekbar:1.1.3'
+    implementation "com.rizlee.view:rangeseekbar:1.0.0"
+    //Google SignIn
+    implementation 'com.google.android.gms:play-services-auth:19.0.0'
+    //Facebook Login
+    implementation 'com.facebook.android:facebook-login:12.2.0'
+    //Coroutines and Serialization
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.1'
+    implementation 'org.jetbrains.kotlinx:kotlinx-serialization-runtime:1.0-M1-1.4.0-rc'
+    //Custom Spinner
+    //implementation "com.github.skydoves:powerspinner:1.1.7"
+    //Timeline View
+    implementation 'com.github.vipulasri:timelineview:1.1.5'
+    implementation 'com.github.kamrul3288:Expandable-Recyclerview-List-Android:1.0.2'
+    //Scroll Page Indicator
+    implementation "ru.tinkoff.scrollingpagerindicator:scrollingpagerindicator:1.0.6"
+    //Swipe Card
+    implementation "com.yuyakaido.android:card-stack-view:2.3.4"
+
+    // Place Picker
+    implementation 'com.google.android.libraries.places:places:1.1.0'
+
+    implementation "com.android.billingclient:billing:5.0.0"
+    implementation "com.android.billingclient:billing-ktx:5.0.0"
+    //google ads
+    implementation 'com.google.android.gms:play-services-ads:17.2.1'
+
+    implementation 'com.github.AnilFurkanOkcun:UWMediaPicker-Android:1.3.2'
+
+    implementation("androidx.viewpager2:viewpager2:1.0.0")
+//event bus
+    implementation 'org.greenrobot:eventbus:3.2.0'
+
+    implementation project(":powerspinner")
+    implementation 'com.davemorrissey.labs:subsampling-scale-image-view-androidx:3.10.0'
+
+    implementation 'com.google.firebase:firebase-config:20.0.4'
+    implementation "com.google.firebase:firebase-messaging:20.2.3"
+
+    // Import the BoM for the Firebase platform
+    implementation platform('com.google.firebase:firebase-bom:29.0.3')
+
+    // Declare the dependencies for the Crashlytics and Analytics libraries
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+}

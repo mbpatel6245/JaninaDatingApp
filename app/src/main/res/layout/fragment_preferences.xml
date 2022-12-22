@@ -1,0 +1,934 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="clickHandler"
+            type="com.jda.application.utils.OnItemClickListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+
+        <include
+            android:id="@+id/appBar"
+            layout="@layout/action_bar_layout" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:isScrollContainer="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appBar">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/addProfilePicTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_14sdp"
+                    android:fontFamily="@font/avenir"
+                    android:text="@string/add_profile_picture"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_10ssp"
+                    app:layout_constraintBottom_toTopOf="@id/addProfilePicTv"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <RelativeLayout
+                    android:id="@+id/addProfilePicRl"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:maxHeight="@dimen/_100sdp"
+                    android:onClick="@{(v)-> clickHandler.onItemClick(v)}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/addProfilePicTv">
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/profilePicCircularIv"
+                        android:layout_width="@dimen/_90sdp"
+                        android:layout_height="@dimen/_90sdp"
+                        android:layout_centerInParent="true"
+                        android:contentDescription="@string/app_name"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/default_img"
+                        android:visibility="visible"
+                        app:riv_oval="true" />
+
+                    <ImageView
+                        android:id="@+id/cameraIv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:contentDescription="@string/app_name"
+                        android:elevation="@dimen/_16sdp"
+                        android:src="@drawable/camera"
+                        android:visibility="visible" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/progressImageLL"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorTransparent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@+id/addProfilePicRl"
+                    app:layout_constraintEnd_toEndOf="@+id/addProfilePicRl"
+                    app:layout_constraintStart_toStartOf="@+id/addProfilePicRl"
+                    app:layout_constraintTop_toTopOf="@+id/addProfilePicRl">
+
+                    <ProgressBar
+                        style="@style/customProgressBar"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/uploading"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_10ssp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/imageTagTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:fontFamily="@font/avenir"
+                    android:gravity="center"
+                    android:text="Profile Pics"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/addProfilePicRl" />
+
+                <ImageView
+                    android:id="@+id/addImageIV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:rotation="45"
+                    android:src="@drawable/close_red"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageTagTV"
+                    app:layout_constraintStart_toEndOf="@+id/imageTagTV"
+                    app:layout_constraintTop_toTopOf="@+id/imageTagTV" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/multiImageRV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/imageTagTV"
+                    tools:listitem="@layout/layout_imaage_upload" />
+
+                <TextView
+                    android:id="@+id/basicTagTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:fontFamily="@font/avenir"
+                    android:gravity="center"
+                    android:text="@string/basic_info"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/multiImageRV" />
+
+                <LinearLayout
+                    android:id="@+id/nameLL"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:background="@drawable/round_corner_light_black_bg"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/basicTagTV">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_8sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:text="@string/first_name"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_10ssp" />
+
+                    <EditText
+                        android:id="@+id/firstNameET"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_8sdp"
+                        android:autofillHints="@string/enter_name"
+                        android:background="@null"
+                        android:hint="@string/enter_name"
+                        android:inputType="textCapSentences"
+                        android:onClick="@{(v)->clickHandler.onItemClick(v)}"
+                        android:paddingVertical="@dimen/_8sdp"
+                        android:singleLine="true"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/hintTextColor"
+                        android:textSize="@dimen/_14ssp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorGrey" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_8sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:text="@string/last_name"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_10ssp" />
+
+                    <EditText
+                        android:id="@+id/lastNameET"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_8sdp"
+                        android:autofillHints="@string/enter_name"
+                        android:background="@null"
+                        android:hint="@string/enter_name"
+                        android:inputType="textCapSentences"
+                        android:onClick="@{(v)->clickHandler.onItemClick(v)}"
+                        android:paddingVertical="@dimen/_8sdp"
+                        android:singleLine="true"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/hintTextColor"
+                        android:textSize="@dimen/_14ssp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/genderLL"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:background="@drawable/round_corner_light_black_bg"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/nameLL">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_8sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:text="@string/i_am_text"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_10ssp" />
+
+                    <com.skydoves.powerspinner.PowerSpinnerView
+                        android:id="@+id/genderSpinner"
+                        style="@style/spinnerStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="start"
+                        android:hint="@string/select_answer"
+                        android:onClick="@{(v)->clickHandler.onItemClick(v)}"
+                        android:paddingHorizontal="@dimen/_8sdp"
+                        android:paddingVertical="@dimen/_8sdp"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_14ssp"
+                        app:spinner_item_array="@array/genderList"
+                        app:spinner_popup_animation="bounce"
+                        app:spinner_popup_height="@dimen/_100sdp"
+                        app:spinner_popup_background="@color/colorGrey"
+                        app:spinner_popup_elevation="@dimen/_14sdp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:background="@color/colorGrey" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_8sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:text="@string/looking_for"
+                        android:textColor="@color/white" />
+
+                    <com.skydoves.powerspinner.PowerSpinnerView
+                        android:id="@+id/genderLookForSpinner"
+                        style="@style/spinnerStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="start"
+                        android:hint="@string/select_answer"
+                        android:onClick="@{(v)->clickHandler.onItemClick(v)}"
+                        android:paddingHorizontal="@dimen/_8sdp"
+                        android:paddingVertical="@dimen/_8sdp"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_14ssp"
+                        app:spinner_popup_height="@dimen/_100sdp"
+
+                        app:spinner_item_array="@array/genderList"
+                        app:spinner_popup_animation="bounce"
+                        app:spinner_popup_background="@color/colorGrey"
+                        app:spinner_popup_elevation="@dimen/_14sdp" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/genderLookForRv"
+                        android:layout_width="match_parent"
+                        android:nestedScrollingEnabled="true"
+                        android:layout_height="wrap_content"
+                        android:background="@color/black"
+                        android:orientation="vertical"
+                        android:visibility="gone"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ageLL"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:background="@drawable/round_corner_light_black_bg"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/genderLL">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_8sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:text="@string/my_age"
+                        android:textColor="@color/white" />
+
+                    <com.skydoves.powerspinner.PowerSpinnerView
+                        android:id="@+id/ageSpinner"
+                        style="@style/spinnerStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="start"
+                        android:hint="@string/select_answer"
+                        android:onClick="@{(v)->clickHandler.onItemClick(v)}"
+                        android:paddingHorizontal="@dimen/_8sdp"
+                        android:paddingVertical="@dimen/_8sdp"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_14ssp"
+                        app:spinner_popup_height="@dimen/_100sdp"
+                        app:spinner_popup_animation="bounce"
+                        app:spinner_popup_background="@color/colorGrey"
+                        app:spinner_popup_elevation="@dimen/_14sdp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:background="@color/colorGrey" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_8sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:text="@string/looking_for"
+                        android:textColor="@color/white" />
+
+                    <!--                    <com.rizlee.rangeseekbar.RangeSeekBar-->
+                    <!--                        android:id="@+id/ageRangeSeekBar"-->
+                    <!--                        android:layout_width="match_parent"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        android:layout_marginTop="@dimen/_4sdp"-->
+                    <!--                        app:active="true"-->
+                    <!--                        app:barHeight="@dimen/_3sdp"-->
+                    <!--                        app:centerColor="@color/white"-->
+                    <!--                        app:enableGradient="false"-->
+                    <!--                        app:roundedCorners="true"-->
+                    <!--                        app:showAdditionalText="none"-->
+                    <!--                        app:sideColor="@color/colorDivider"-->
+                    <!--                        app:textColor="@android:color/white"-->
+                    <!--                        app:thumbsDisabled="@drawable/ic_baseline_lens_24"-->
+                    <!--                        app:thumbsNormal="@drawable/ic_baseline_lens_24"-->
+                    <!--                        app:thumbsPressed="@drawable/ic_baseline_lens_24"-->
+                    <!--                        app:thumbsTextMargin="@dimen/_8sdp"-->
+                    <!--                        app:transitionColor="@color/colorRed" />-->
+
+                    <com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar
+                        android:id="@+id/ageRangeSeekBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/_4sdp"
+                        app:bar_color="@color/colorGrey"
+                        app:bar_highlight_color="@color/white"
+                        app:corner_radius="10"
+                        app:data_type="_integer"
+                        app:left_thumb_image="@drawable/bar"
+                        app:left_thumb_image_pressed="@drawable/bar"
+                        app:max_value="99"
+                        app:min_value="18"
+                        app:right_thumb_image="@drawable/bar"
+                        app:right_thumb_image_pressed="@drawable/bar" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginHorizontal="@dimen/_8sdp"
+                        android:layout_marginVertical="@dimen/_4sdp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/minAgeTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:text="18"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_10ssp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/maxAgeTV"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:text="99"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_10ssp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/locationLL"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:background="@drawable/round_corner_light_black_bg"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ageLL">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_8sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:text="@string/location"
+                        android:textColor="@color/white" />
+
+                    <EditText
+                        android:id="@+id/locationET"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_8sdp"
+                        android:autofillHints="@string/enter_here"
+                        android:background="@null"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:hint="@string/enter_here"
+                        android:inputType="textCapSentences"
+                        android:paddingVertical="@dimen/_8sdp"
+                        android:singleLine="true"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/hintTextColor" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/statusLL"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:background="@drawable/round_corner_light_black_bg"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/locationLL">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_8sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:text="@string/i_am_text"
+                        android:textColor="@color/white" />
+
+                    <com.skydoves.powerspinner.PowerSpinnerView
+                        android:id="@+id/statusSpinner"
+                        style="@style/spinnerStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="start"
+                        android:hint="@string/select_answer"
+                        android:onClick="@{(v)->clickHandler.onItemClick(v)}"
+                        android:paddingHorizontal="@dimen/_8sdp"
+                        android:paddingVertical="@dimen/_8sdp"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_14ssp"
+                        app:spinner_popup_height="@dimen/_100sdp"
+                        app:spinner_item_array="@array/relationshipList"
+                        app:spinner_popup_animation="bounce"
+                        app:spinner_popup_background="@color/colorGrey"
+                        app:spinner_popup_elevation="@dimen/_14sdp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/heightLL"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:background="@drawable/round_corner_light_black_bg"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/statusLL">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_8sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:text="@string/height_text"
+                        android:textColor="@color/white" />
+
+                    <com.skydoves.powerspinner.PowerSpinnerView
+                        android:id="@+id/heightSpinner"
+                        style="@style/spinnerStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="start"
+                        android:hint="@string/select_answer"
+                        android:onClick="@{(v)->clickHandler.onItemClick(v)}"
+                        android:paddingHorizontal="@dimen/_8sdp"
+                        android:paddingVertical="@dimen/_8sdp"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_14ssp"
+                        app:spinner_popup_height="@dimen/_100sdp"
+                        app:spinner_popup_animation="bounce"
+                        app:spinner_popup_background="@color/colorGrey"
+                        app:spinner_popup_elevation="@dimen/_14sdp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:background="@color/colorGrey" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_8sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:text="@string/looking_for"
+                        android:textColor="@color/white" />
+
+                    <!--                    <com.rizlee.rangeseekbar.RangeSeekBar-->
+                    <!--                        android:id="@+id/heightRangeSeekBar"-->
+                    <!--                        android:layout_width="match_parent"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        app:active="true"-->
+                    <!--                        app:barHeight="@dimen/_3sdp"-->
+                    <!--                        app:centerColor="@color/white"-->
+                    <!--                        app:enableGradient="false"-->
+                    <!--                        app:roundedCorners="true"-->
+                    <!--                        app:showAdditionalText="none"-->
+                    <!--                        app:showThumbsText="none"-->
+                    <!--                        app:sideColor="@color/colorDivider"-->
+                    <!--                        app:textColor="@android:color/white"-->
+                    <!--                        app:thumbsDisabled="@drawable/ic_baseline_lens_24"-->
+                    <!--                        app:thumbsNormal="@drawable/ic_baseline_lens_24"-->
+                    <!--                        app:thumbsPressed="@drawable/ic_baseline_lens_24"-->
+                    <!--                        app:thumbsTextMargin="@dimen/_8sdp"-->
+                    <!--                        app:transitionColor="@color/colorRed" />-->
+
+                    <com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar
+                        android:id="@+id/heightRangeSeekBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/_4sdp"
+                        app:bar_color="@color/colorGrey"
+                        app:bar_highlight_color="@color/white"
+                        app:corner_radius="10"
+                        app:data_type="_integer"
+                        app:gap="10"
+                        app:left_thumb_image="@drawable/bar"
+                        app:left_thumb_image_pressed="@drawable/bar"
+                        app:right_thumb_image="@drawable/bar"
+                        app:right_thumb_image_pressed="@drawable/bar" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginHorizontal="@dimen/_8sdp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/minHeightTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:text="4'7"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_10ssp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/maxHeightTV"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:text="6'5+"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_10ssp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ethnicityLL"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:background="@drawable/round_corner_light_black_bg"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/heightLL">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_8sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:text="@string/my_ethnicity"
+                        android:textColor="@color/white" />
+
+                    <com.skydoves.powerspinner.PowerSpinnerView
+                        android:id="@+id/ethnicitySpinner"
+                        style="@style/spinnerStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="start"
+                        android:hint="@string/select_answer"
+                        android:onClick="@{(v)->clickHandler.onItemClick(v)}"
+                        android:paddingHorizontal="@dimen/_8sdp"
+                        android:paddingVertical="@dimen/_8sdp"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_14ssp"
+                        app:spinner_popup_height="@dimen/_100sdp"
+                        app:spinner_item_array="@array/ethnicityList"
+                        app:spinner_popup_animation="bounce"
+                        app:spinner_popup_background="@color/colorGrey"
+                        app:spinner_popup_elevation="@dimen/_14sdp" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/ethnicityRv"
+                        android:layout_width="match_parent"
+                        android:nestedScrollingEnabled="true"
+                        android:layout_height="wrap_content"
+                        android:background="@color/black"
+                        android:orientation="vertical"
+                        android:visibility="gone"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:background="@color/colorGrey" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_8sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:text="@string/looking_for"
+                        android:textColor="@color/white" />
+
+                    <com.skydoves.powerspinner.PowerSpinnerView
+                        android:id="@+id/ethnicityLookForSpinner"
+                        style="@style/spinnerStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="start"
+                        android:hint="@string/select_answer"
+                        android:onClick="@{(v)->clickHandler.onItemClick(v)}"
+                        android:paddingHorizontal="@dimen/_8sdp"
+                        android:paddingVertical="@dimen/_8sdp"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_14ssp"
+                        app:spinner_popup_height="@dimen/_100sdp"
+                        app:spinner_item_array="@array/ethnicityLookingForList"
+                        app:spinner_popup_animation="bounce"
+                        app:spinner_popup_background="@color/colorGrey"
+                        app:spinner_popup_elevation="@dimen/_14sdp" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/ethnicityLookForRv"
+                        android:layout_width="match_parent"
+                        android:nestedScrollingEnabled="true"
+                        android:layout_height="wrap_content"
+                        android:background="@color/black"
+                        android:orientation="vertical"
+                        android:visibility="gone"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/beliefLL"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:background="@drawable/round_corner_light_black_bg"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ethnicityLL">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_8sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:text="@string/my_beliefs"
+                        android:textColor="@color/white" />
+
+                    <com.skydoves.powerspinner.PowerSpinnerView
+                        android:id="@+id/beliefSpinner"
+                        style="@style/spinnerStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="start"
+                        android:hint="@string/select_answer"
+                        android:onClick="@{(v)->clickHandler.onItemClick(v)}"
+                        android:paddingHorizontal="@dimen/_8sdp"
+                        android:paddingVertical="@dimen/_8sdp"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_14ssp"
+                        app:spinner_popup_height="@dimen/_100sdp"
+                        app:spinner_item_array="@array/religionList"
+                        app:spinner_popup_animation="bounce"
+                        app:spinner_popup_background="@color/colorGrey"
+                        app:spinner_popup_elevation="@dimen/_14sdp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:background="@color/colorGrey" />
+
+                 <!--   <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_8sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:text="@string/looking_for"
+                        android:textColor="@color/white" />
+
+                    <com.skydoves.powerspinner.PowerSpinnerView
+                        android:id="@+id/beliefLookForSpinner"
+                        style="@style/spinnerStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="start"
+                        android:hint="@string/select_answer"
+                        android:onClick="@{(v)->clickHandler.onItemClick(v)}"
+                        android:paddingHorizontal="@dimen/_8sdp"
+                        android:paddingVertical="@dimen/_8sdp"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_14ssp"
+                        app:spinner_item_array="@array/religionLookingForList"
+                        app:spinner_popup_animation="bounce"
+                        app:spinner_popup_background="@color/colorGrey"
+                        app:spinner_popup_elevation="@dimen/_14sdp" />-->
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/belief1LL"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:background="@drawable/round_corner_light_black_bg"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/beliefLL">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_8sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:text="@string/looking_for"
+                        android:textColor="@color/white" />
+
+                    <com.skydoves.powerspinner.PowerSpinnerView
+                        android:id="@+id/beliefLookForSpinner"
+                        style="@style/spinnerStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="start"
+                        android:hint="@string/select_answer"
+                        android:onClick="@{(v)->clickHandler.onItemClick(v)}"
+                        android:paddingHorizontal="@dimen/_8sdp"
+                        android:paddingVertical="@dimen/_8sdp"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_14ssp"
+                        app:spinner_popup_height="@dimen/_100sdp"
+                        app:spinner_item_array="@array/religionLookingForList"
+                        app:spinner_popup_animation="bounce"
+                        app:spinner_popup_background="@color/colorGrey"
+                        app:spinner_popup_elevation="@dimen/_14sdp" />
+
+                   <!-- <EditText
+                        android:maxLines="5"
+                        android:minLines="5"
+                        android:background="@color/white"
+                        android:textSize="12sp"
+                        android:gravity="top"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>-->
+
+                </LinearLayout>
+
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/termConditionCL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="@dimen/_8sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/belief1LL">
+
+                    <LinearLayout
+                        android:id="@+id/termConditionLL"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_20sdp"
+                        android:layout_marginBottom="@dimen/_8sdp"
+                        android:orientation="horizontal"
+                        app:layout_constraintBottom_toTopOf="@id/nextBT"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent">
+
+                        <CheckBox
+                            android:id="@+id/termAndServicesCB"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/_4sdp"
+                            android:button="@drawable/term_condition_checkbox_selector"
+                            android:checked="false"
+                            android:padding="@dimen/_4sdp" />
+
+                        <TextView
+                            android:id="@+id/agreeTermTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="@string/i_agree_term_condition"
+                            android:textColor="@color/white"
+                            android:textColorLink="@color/white" />
+                    </LinearLayout>
+
+
+
+                    <Button
+                        android:id="@+id/nextBT"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:layout_marginBottom="@dimen/_12sdp"
+                        android:alpha="0.4"
+                        android:background="@drawable/round_corner_common_bg"
+                        android:backgroundTint="@color/colorRed"
+                        android:minHeight="@dimen/_36sdp"
+                        android:onClick="@{(v)->clickHandler.onItemClick(v)}"
+                        android:text="@string/next"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_16sdp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/multiSelectionRV"
+                    android:layout_width="0dp"
+                    android:nestedScrollingEnabled="true"
+                    android:layout_height="@dimen/_350sdp"
+                    android:background="@color/black"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@id/belief1LL"
+                    app:layout_constraintEnd_toEndOf="@id/beliefLL"
+                    app:layout_constraintStart_toStartOf="@id/beliefLL"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

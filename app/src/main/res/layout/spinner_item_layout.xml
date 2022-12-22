@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:id="@+id/itemTV"
+        style="?android:attr/spinnerItemStyle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="none"
+        android:paddingHorizontal="@dimen/_4sdp"
+        android:paddingVertical="@dimen/_8sdp"
+        android:text="@string/select_answer"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/_14ssp" />
+</layout>

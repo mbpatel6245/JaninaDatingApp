@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="clickHandle"
+            type="com.jda.application.utils.OnItemClickListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black">
+
+        <ImageView
+            android:id="@+id/splashLoginIV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/_100sdp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/logo"
+            app:layout_constraintBottom_toTopOf="@id/facebookLL"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/facebookLL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_24sdp"
+            android:layout_marginTop="@dimen/_70sdp"
+            android:background="@drawable/round_corner_common_bg"
+            android:backgroundTint="@color/colorFacebookBg"
+            android:gravity="center"
+            android:onClick="@{(v)-> clickHandle.onItemClick(v)}"
+            android:orientation="horizontal"
+            android:padding="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/splashLoginIV">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/_12sdp"
+                android:gravity="center_vertical"
+                android:text="@string/login_with_facebook"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12ssp"
+                app:drawableStartCompat="@drawable/fb" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/googleLL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_24sdp"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:background="@drawable/round_corner_common_bg"
+            android:backgroundTint="@color/colorGoogleBg"
+            android:gravity="center"
+            android:onClick="@{(v)-> clickHandle.onItemClick(v)}"
+            android:orientation="horizontal"
+            android:padding="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/facebookLL">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/_12sdp"
+                android:gravity="center_vertical"
+                android:text="@string/login_with_google"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12ssp"
+                app:drawableStartCompat="@drawable/google" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linkedInLL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_24sdp"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:background="@drawable/round_corner_common_bg"
+            android:backgroundTint="@color/colorLinkedInBg"
+            android:gravity="center"
+            android:onClick="@{(v)-> clickHandle.onItemClick(v)}"
+            android:orientation="horizontal"
+            android:padding="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/googleLL">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/_12sdp"
+                android:gravity="center_vertical"
+                android:text="@string/login_with_linkedin"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12ssp"
+                app:drawableStartCompat="@drawable/linkedin" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/didNotPostTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_24sdp"
+            android:layout_marginTop="@dimen/_44sdp"
+            android:text="@string/no_worries_we_won_t_post_anything"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linkedInLL" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

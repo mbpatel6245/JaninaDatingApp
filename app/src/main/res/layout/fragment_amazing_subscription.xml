@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Fragment.subscriptions.SubscriptionFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/buy_btn"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@drawable/round_corner_white"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/colorChangeLL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/top_round_white_bg"
+                android:orientation="vertical"
+                android:padding="@dimen/_16sdp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/that_amazing"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12sdp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:gravity="center"
+                    android:text="@string/_19"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_24sdp"
+                    android:textStyle="bold" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/titleTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:background="@drawable/radius_4_back_white"
+                    android:gravity="center"
+                    android:paddingStart="@dimen/_12sdp"
+                    android:paddingTop="@dimen/_6sdp"
+                    android:paddingEnd="@dimen/_12sdp"
+                    android:paddingBottom="@dimen/_6sdp"
+                    android:text="@string/unlimited_users"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12ssp" />
+
+            </LinearLayout>
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_16sdp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/check_icon"
+                        android:drawablePadding="@dimen/_12sdp"
+                        android:text="@string/can_see_unlimited_amount_of_profiles"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_9ssp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_6sdp"
+                        android:drawableStart="@drawable/check_icon"
+                        android:drawablePadding="@dimen/_12sdp"
+                        android:visibility="gone"
+                        android:text="@string/can_filter_by_age_gender_pronoun_height_weight_ethnicity_and_role_top_bottom_vers"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_9ssp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_6sdp"
+                        android:drawableStart="@drawable/check_icon"
+                        android:drawablePadding="@dimen/_12sdp"
+                        android:text="@string/no_ads"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_9ssp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_6sdp"
+                        android:drawableStart="@drawable/check_icon"
+                        android:drawablePadding="@dimen/_12sdp"
+                        android:text="@string/can_view_unlimited_blurred_videos_each_day"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_9ssp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_6sdp"
+                        android:drawableStart="@drawable/check_icon"
+                        android:drawablePadding="@dimen/_12sdp"
+                        android:text="@string/see_other_user_profile_pic"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_9ssp" />
+
+<!--                    <androidx.appcompat.widget.AppCompatTextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="@dimen/_6sdp"-->
+<!--                        android:drawableStart="@drawable/check_icon"-->
+<!--                        android:drawablePadding="@dimen/_12sdp"-->
+<!--                        android:text="@string/can_access_out_and_about_feature"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textSize="@dimen/_9ssp" />-->
+
+<!--                    <androidx.appcompat.widget.AppCompatTextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="@dimen/_6sdp"-->
+<!--                        android:drawableStart="@drawable/check_icon"-->
+<!--                        android:drawablePadding="@dimen/_12sdp"-->
+<!--                        android:text="@string/can_mute_conversations"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textSize="@dimen/_9ssp" />-->
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_6sdp"
+                        android:drawableStart="@drawable/check_icon"
+                        android:drawablePadding="@dimen/_12sdp"
+                        android:text="@string/can_access_privacy_mode_allowing_each_user_to_be_invisible_their_profile_will_not_be_available_to_other_users_but_this_user_can_access_whomever_they_d_like"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_9ssp" />
+
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/buy_btn"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/red_button_bg"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:fontFamily="@font/avenir"
+            android:text="@string/subscribe_txt"
+            android:textAllCaps="false"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_15ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </RelativeLayout>
+
+</layout>

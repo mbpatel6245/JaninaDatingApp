@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="clickHandler"
+            type="com.jda.application.utils.OnItemClickListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black">
+
+        <include
+            android:id="@+id/appBar"
+            layout="@layout/action_bar_layout" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/appBar">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/timelineViewLL"
+                    android:layout_width="@dimen/_204sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:padding="@dimen/_8sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+
+                    <com.github.vipulasri.timelineview.TimelineView
+                        android:id="@+id/timeline1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:endLineColor="@color/lineColor"
+                        app:lineOrientation="horizontal"
+                        app:lineStyle="normal"
+                        app:lineWidth="@dimen/_3sdp"
+                        app:marker="@drawable/one_red"
+                        app:markerSize="@dimen/_18sdp"
+                        app:startLineColor="@android:color/transparent" />
+
+                    <com.github.vipulasri.timelineview.TimelineView
+                        android:id="@+id/timeline2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        app:endLineColor="@color/lineColor"
+                        app:lineOrientation="horizontal"
+                        app:lineStyle="normal"
+                        app:lineWidth="@dimen/_3sdp"
+                        app:marker="@drawable/two_grey"
+                        app:markerSize="@dimen/_18sdp"
+                        app:startLineColor="@color/lineColor" />
+
+                    <com.github.vipulasri.timelineview.TimelineView
+                        android:id="@+id/timeline3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        app:endLineColor="@android:color/transparent"
+                        app:lineOrientation="horizontal"
+                        app:lineStyle="normal"
+                        app:lineWidth="@dimen/_3sdp"
+                        app:marker="@drawable/three_grey"
+                        app:markerSize="@dimen/_18sdp"
+                        app:startLineColor="@color/lineColor" />
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/questionsRV"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:orientation="vertical"
+                    android:paddingTop="0dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/timelineViewLL"
+                    tools:listitem="@layout/questions_item_layout" />
+
+                <FrameLayout
+                    android:id="@+id/nextFL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/questionsRV"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    <Button
+                        android:id="@+id/nextQuestionsBT"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:layout_marginBottom="@dimen/_20sdp"
+                        android:background="@drawable/round_corner_common_bg"
+                        android:backgroundTint="@color/colorRed"
+                        android:minHeight="@dimen/_36sdp"
+                        android:onClick="@{(v)->clickHandler.onItemClick(v)}"
+                        android:text="@string/next"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_16sdp" />
+
+                    <Button
+                        android:id="@+id/nextQuestionsSecondBT"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:layout_marginBottom="@dimen/_20sdp"
+                        android:background="@drawable/round_corner_common_bg"
+                        android:backgroundTint="@color/colorRed"
+                        android:minHeight="@dimen/_36sdp"
+                        android:onClick="@{(v)->clickHandler.onItemClick(v)}"
+                        android:text="@string/next"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_16sdp"
+                        android:visibility="gone" />
+
+                    <Button
+                        android:id="@+id/submitQuestionsBT"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:layout_marginBottom="@dimen/_20sdp"
+                        android:background="@drawable/round_corner_common_bg"
+                        android:backgroundTint="@color/colorRed"
+                        android:minHeight="@dimen/_36sdp"
+                        android:onClick="@{(v)->clickHandler.onItemClick(v)}"
+                        android:text="@string/submit"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_16sdp"
+                        android:visibility="gone" />
+                </FrameLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

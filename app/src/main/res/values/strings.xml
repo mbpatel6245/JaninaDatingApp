@@ -1,0 +1,588 @@
+<resources>
+    <string name="app_name">Some App</string>
+    <!--Facebook Login Strings  -->
+    <!--    <string name="facebook_app_id">469763284438880</string>-->
+    <!--    <string name="fb_login_protocol_scheme">fb469763284438880</string>-->
+
+    <string name="google_place_key">AIzaSyDStvbTtHjGcHsWgtsPFU6kE-wLtCcR5Kc</string>
+
+    <!--    <string name="facebook_app_id">457136465368692</string>-->
+    <!--    <string name="fb_login_protocol_scheme">fb457136465368692</string>-->
+
+    <!--Client's facebook id (someappdating@gmail.com)-->
+    <string name="facebook_app_id">2959577400930680</string>
+    <string name="fb_login_protocol_scheme">fb2959577400930680</string>
+
+    <!--ads id dummy-->
+    <!--<string name="banner_app_id">ca-app-pub-3940256099942544~3347511713 </string>
+    <string name="ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>-->
+
+    <!--ads id live-->
+    <string name="banner_app_id">ca-app-pub-4580417451589999~7705951588</string>
+    <string name="ad_unit_id">ca-app-pub-4580417451589999/6919214027</string>
+
+    <!--Common Strings-->
+    <string name="ok_message">OK</string>
+    <string name="error_text">Error</string>
+    <string name="check_internet_connection">The internet connection appears to be offline. Please check your internet connection.</string>
+    <string name="internal_server_error">Internal server error</string>
+    <string name="something_wrong">Something went wrong, Please try again later.</string>
+    <string name="invalid_url">Invalid Url!</string>
+<!--    <string name="unAuthorized_access">Unauthorized Access</string>-->
+    <string name="unAuthorized_access">Your session has expired! Login again to continue.</string>
+
+    <string name="please_choose_30_sec_less_or_equal_videos">Please choose 30 sec less or equal videos</string>
+    <string name="blur_the_video">Blur the video.</string>
+    <string name="please_choose_video_minimum_of_30_sec_duration">Please choose video minimum of 30 sec duration.</string>
+    <string name="choose_video">Choose Video</string>
+    <string name="please_wait_patiently">Please wait patiently…\n %1$d %2$s</string>
+    <string name="blur_percentage">Blur Percentage : %d%%</string>
+    <string name="please_wait_patiently_only">Please wait patiently…</string>
+    <string name="file_saved_path">\"File saved path :- \"</string>
+    <string name="done_next">Done!\n</string>
+    <string name="failed_reason">\"Failed Reason :- \"</string>
+    <string name="done">Done</string>
+    <string name="ok">OK</string>
+    <string name="rec_size_is_too_much_large">Rec size is too much large</string>
+    <string name="what_s_it_called">WHAT\'S IT CALLED?</string>
+    <string name="that_dating_app">THAT DATING APP</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="login">Login</string>
+    <string name="or">Or</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="i_am_gender">I am (Gender)</string>
+    <string name="next">Next</string>
+    <string name="questions">Questions</string>
+    <string name="please_answer_minimum_of_5_question">Please answer minimum of 5 question.</string>
+    <string name="skip">Skip</string>
+    <string name="logout">Logout</string>
+    <string name="conversation">Conversation</string>
+    <string name="start_typing">Type message here</string>
+    <string name="record_bio">Record Bio</string>
+    <string name="continue_with">Continue with</string>
+    <string name="preferences">Preferences</string>
+    <string name="basic_info">Basic info</string>
+    <string name="other_info">Other info</string>
+    <string name="looking_for_height">Looking for (Height)</string>
+    <string name="looking_for_weight">Looking for (Weight)</string>
+    <string name="looking_for_age">Looking for (Age)</string>
+    <string name="looking_for_gender">Looking for (Gender)</string>
+    <string name="looking_for_ethnicity">Looking for (Ethnicity)</string>
+    <string name="i_am_age">I am (Age)</string>
+    <string name="i_am">I am (Ethnicity)</string>
+    <string name="ethnicity">Ethnicity</string>
+    <string name="i_am_looking_for">I am Looking for</string>
+    <string name="info_window_data">Please answer minimum of 5 questions. These questions will be seen on your profile by all other users.</string>
+    <string name="save_next"><![CDATA[Save & Next]]></string>
+    <string name="back">Back</string>
+    <string name="type_here">Type here…</string>
+    <string name="recording_bio">Recording bio</string>
+    <string name="info_windoe_second">You need to record a 15–30 second video of yourself explaining what you like people to know about yourself.</string>
+    <string name="start_recording">Start Recording</string>
+    <string name="preview_bio_video">Preview bio video</string>
+    <string name="so_go_pop_some_bubbles">So go pop some bubbles!</string>
+    <string name="possibilities">Possibilities</string>
+    <string name="singles">Singles</string>
+    <string name="out_and_about">Out &amp; About</string>
+
+    <string name="frame_rate_value_with_unit">%d fps</string>
+    <string name="bit_rate_value_with_unit">%d kbps</string>
+    <string name="blind_date">Blind Date</string>
+    <string name="profile">Profile</string>
+    <string name="travel">Travel</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="old_password">Old Password</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="sign_in">Sign In</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="send_otp">Send OTP</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="forgot_password_text">Forgot Password</string>
+    <string name="send_new_password">Send New Password</string>
+    <string name="send">Send</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="set_video_blurriness">Set video blurriness</string>
+    <string name="cancel">Cancel</string>
+    <string name="save_upload"><![CDATA[Save & Upload]]></string>
+    <string name="age">Age</string>
+    <string name="height">height</string>
+    <string name="weight">Weight</string>
+    <string name="_4_new_users_are_in_nyour_area">4 new users are in\nyour area.</string>
+
+
+    <string name="set_a_blind_date_with">Set a blind date with</string>
+    <string name="location">My Location</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="enter_email">Enter email</string>
+    <string name="or_text">OR</string>
+    <string name="submit_request">Submit Request</string>
+    <string name="set_person_blind_date_txt">Do you want to set this person on a blind date?</string>
+    <string name="request_sent">Request sent</string>
+    <string name="request_accepted">Request Accepted</string>
+    <string name="request_rejected">Request Rejected</string>
+    <string name="request_sent_text">A blind date request has been submitted</string>
+    <string name="sent_continue">Sent! Continue To App</string>
+    <string name="its_a_match">It\'s a match!</string>
+    <string name="match_text">You and Jully like each other</string>
+    <string name="go_to_profile">Go To Profile</string>
+    <string name="back_to_home">Back to Home</string>
+    <string name="you">You</string>
+    <string name="you_have_logged_on_2_day_s_ina_row_none_more_day_you_get_a_free_nsneak_peak">You have logged on 2 day\'s ina row\nOne more day &amp; you get a free\nSneak Peak</string>
+    <string name="your_unblur_request_has_nbeen_sent">Your unblur request has\nbeen sent!</string>
+    <string name="matches_tag">Matches</string>
+    <string name="have_an_account">Already have an account?</string>
+    <string name="dont_have_an_account">Don\'t have an account?</string>
+    <string name="otp">OTP</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="enter_your_nverification_code">Enter your\nverification code</string>
+    <string name="success">Success</string>
+    <string name="we_have_sent_a_password_reset_ninstructions_to_your_email">We have sent a password reset\ninstructions to your email.</string>
+    <string name="verify">Verify</string>
+    <string name="press_back_again_to_exit">Press back again to exit</string>
+    <string name="max_five_pics">You can add maximum of 5 pictures.</string>
+    <string name="check_more_info">Check More Info</string>
+    <string name="_00_00">00:00</string>
+
+    <string name="q">Q. </string>
+    <string name="qs">Q</string>
+    <string name="dot">.</string>
+    <string name="a">A. </string>
+    <string name="ques_5">Which is one of your biggest pet peeves?</string>
+    <string name="ans_5">Folding laundry</string>
+
+
+    <string name="how_are_you">How are you Mohit?</string>
+    <string name="type_msg_here">Type message here</string>
+    <string name="image_view">Image View</string>
+    <string name="questions_5">Question - 5</string>
+    <string name="view_all">View all</string>
+    <string name="choose_gender">Choose the Gender</string>
+    <string name="choose_height">Choose the Height</string>
+    <string name="choose_weight">Choose the Weight</string>
+    <string name="choose_age">Choose the Age</string>
+    <string name="height_hint">I am (Height in Foot and Inches)</string>
+    <string name="weight_hint">Weight (Pounds)</string>
+    <string name="age_hint">I am (age)</string>
+    <string name="feet">Feet</string>
+    <string name="inches">Inches</string>
+    <string name="choose_ethnicity">Choose the Ethnicity</string>
+    <string name="gender">Gender</string>
+    <string name="un_match">Unmatch</string>
+    <string name="chat">Chat</string>
+    <string name="ask_for_unblur">Ask for unblur</string>
+    <string name="blind_dates">Blind Dates</string>
+    <string name="please_enter_email_address">Please enter email address</string>
+    <string name="please_enter_password">Please enter password</string>
+    <string name="please_enter_old_password">Please enter old password</string>
+    <string name="please_enter_new_password">Please enter new password</string>
+    <string name="please_enter_confirm_password">Please enter confirm password</string>
+    <string name="please_enter_password_length">Password length should be greater than 8 characters.</string>
+    <string name="old_password_length_msg">Old Password length should be greater than 8 characters.</string>
+    <string name="new_password_length_msg">New Password length should be greater than 8 characters.</string>
+    <string name="confirm_password_length_msg">Confirm Password length should be greater than 8 characters.</string>
+    <string name="password_mismatch_msg">New password and confirm password are mis-matched.</string>
+    <string name="please_enter_valid_email_address">Please enter a valid email.</string>
+    <string name="login_success">Login Successfully</string>
+    <string name="logout_success">Logout Successfully</string>
+    <string name="logout_alert_msg">Are you sure you want to logout?</string>
+    <string name="apply">Apply</string>
+
+    <string name="please_enter_code">Please enter phone code</string>
+    <string name="please_enter_phone_number">Please enter Phone number</string>
+    <string name="please_enter_otp">Please enter OTP</string>
+    <string name="please_add_your_phone_number_to_verify">Please add your phone number to verify.</string>
+    <string name="we_will_send_a_verification_code_on_this_number">We will send a verification code on this number.</string>
+    <string name="please_enter_answer">Please enter answer</string>
+    <string name="finish">Finish</string>
+    <string name="answer_saved_successfully">Answer saved successfully</string>
+    <string name="answer_update_successfully">Answer update successfully</string>
+    <string name="profile_saved_successfully">Profile saved successfully</string>
+    <string name="profile_updated_successfully">Profile updated successfully.</string>
+    <string name="private_msg">Your account is now private</string>
+    <string name="public_msg">Your account is now public</string>
+    <string name="answer_saved">Answer saved</string>
+    <string name="add_profile_picture">Add profile picture</string>
+    <string name="update_profile">Update Profile</string>
+    <string name="update">Update</string>
+    <string name="edit_bio">Edit Bio</string>
+    <string name="please_wait">Please Wait</string>
+    <string name="video_duration_should_be_atleast_15_sec">Video duration should be of at least 15 seconds.</string>
+
+    <!-- Image Picker Strings-->
+    <string name="permission_msg_camera_and_gallery">You need to Allow Permissions for Camera and Gallery</string>
+    <string name="permission_msg_gallery">You need to Allow Permissions for Gallery</string>
+    <string name="select_from_gallery">Select picture from gallery</string>
+    <string name="capture_from_camera">Capture picture from camera</string>
+    <string name="choose_picture">Choose Picture</string>
+    <string name="unable_to_upload_pic">Unable to upload profile picture.</string>
+
+    <string-array name="genderList">
+
+        <item>A Man</item>
+        <item>A Woman</item>
+        <item>Trans Man</item>
+        <item>Trans Woman</item>
+        <item>Non-Binary</item>
+    </string-array>
+
+    <string-array name="subscriptionList">
+        <item>1 month</item>
+        <item>3 months</item>
+        <item>6 months</item>
+    </string-array>
+
+    <string-array name="subscriptionPrice">
+        <item>$64.00</item>
+        <item>$129.00</item>
+        <item>$194.00</item>
+    </string-array>
+
+    <!--<string-array name="subscriptionPrice">
+        <item>$20.00</item>
+        <item>$40.00</item>
+        <item>$80.00</item>
+    </string-array>-->
+
+    <string-array name="ethnicityList">
+        <item>Any</item>
+        <item>American Indian Or Alaska Native</item>
+        <item>Asian</item>
+        <item>Black Or African American</item>
+        <item>Hispanic Or Latino</item>
+        <item>Native Hawaiian Or Other Pacific Islander</item>
+        <item>White</item>
+        <item>European</item>
+        <item>Indian</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="ethnicityLookingForList">
+
+        <item>Any</item>
+        <item>American Indian Or Alaska Native</item>
+        <item>Asian</item>
+        <item>Black Or African American</item>
+        <item>Hispanic Or Latino</item>
+        <item>Native Hawaiian Or Other Pacific Islander</item>
+        <item>White</item>
+        <item>European</item>
+        <item>Indian</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="religionList">
+        <item>Agnostic</item>
+        <item>Atheist</item>
+        <item>Buddhist</item>
+        <item>Christian</item>
+        <item>Hindu</item>
+        <item>Jewish</item>
+        <item>Spiritual</item>
+        <item>Chatholic</item>
+        <item>None</item>
+    </string-array>
+
+    <string-array name="religionLookingForList">
+
+        <item>Any</item>
+        <item>Agnostic</item>
+        <item>Atheist</item>
+        <item>Buddhist</item>
+        <item>Christian</item>
+        <item>Hindu</item>
+        <item>Jewish</item>
+        <item>Spiritual</item>
+        <item>Chatholic</item>
+    </string-array>
+
+    <string-array name="relationshipList">
+        <item>Single</item>
+        <item>Separated</item>F
+        <item>Divorced</item>
+    </string-array>
+
+    <!--Validation Strings-->
+    <string name="please_enter_email">Please enter email</string>
+    <string name="please_enter_first_name">Please enter First Name.</string>
+    <string name="please_enter_last_name">Please enter Last Name.</string>
+    <string name="please_select_height">Please select Height.</string>
+    <string name="please_select_ethnicity">Please select My Ethnicity.</string>
+    <string name="please_select_ethnicity_choice">Please select Ethnicity Looking For.</string>
+    <string name="please_select_belief">Please select My Belief.</string>
+    <string name="please_select_belief_choice">Please select Belief Looking For.</string>
+    <string name="please_select_age">Please select Age.</string>
+    <string name="please_select_location">Please select Location.</string>
+    <string name="please_select_martial_status">Please select Martial Status.</string>
+    <string name="please_select_gender">Please select Gender.</string>
+    <string name="please_select_gender_choice">Please select Gender Looking For.</string>
+    <string name="enter_valid_email">Please enter a valid email.</string>
+    <string name="enter_valid_password">Enter valid password.</string>
+    <string name="password_mismatch_validation">Password mismatched.</string>
+    <string name="password_length_at_least">Password must contain at least 8 characters.</string>
+    <string name="name_length_at_least">Name must contain at least 3 characters.</string>
+    <string name="name_only_contains_character">Name must not contain numbers and special character.</string>
+    <string name="image_error_validation">Please upload your profile picture.</string>
+    <string name="min_weight_max_not_equal">Min weight should not be equal to Max weight</string>
+    <string name="min_height_max_not_equal">Min height should not be equal to Max height</string>
+    <string name="min_age_max_not_equal">Min Age should not be equal to Max Age</string>
+    <string name="max_weight_less">Max weight should be greater than to Min weight</string>
+    <string name="max_height_less">Max height should be greater than to Min height</string>
+    <string name="max_age_less">Max Age should be greater than to Min Age</string>
+    <string name="min_weight_greater">Min weight should be lower than Max weight</string>
+    <string name="min_height_greater">Min height should be lower than Max height</string>
+    <string name="min_age_greater">Min Age should be lower than Max Age</string>
+    <string name="resent_code">Resend Code</string>
+    <string name="otp_sent_successfully">OTP sent successfully</string>
+    <string name="image_uploaded_success">Image uploaded successfully</string>
+    <string name="profile_pic_changed_success">Profile Picture Changed successfully</string>
+    <string name="otp_resend_sent_successfully">OTP resend successfully</string>
+    <string name="name_validation">abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="please_give_more_answer">Please give one more answer</string>
+    <string name="phone_number_is_invalid">Phone number is invalid</string>
+    <string name="verification_code_is_invalid">Verification code is invalid</string>
+    <string name="invite_sent">Invite Sent</string>
+    <string name="okay">okay</string>
+    <string name="user_reported">User Reported</string>
+    <string name="user_blocked">User Blocked</string>
+    <string name="user_un_blocked">User Unblocked</string>
+    <string name="no_request_found">No Request Found</string>
+    <string name="no_data_found">No Data Found</string>
+    <string name="no_preferences">NO PREFERENCES</string>
+
+    <!--    Edit Profile Screen Strings-->
+    <string name="personal_information">Personal Information</string>
+    <string name="security">Security</string>
+    <string name="private_account">Private Account</string>
+    <string name="change_password">Change Password</string>
+    <string name="save">Save</string>
+    <string name="height_text">My Height</string>
+    <string name="show_online_profiles_only">Show online profiles only</string>
+    <string name="no_user_found">No user found</string>
+    <string name="uploading">Uploading....</string>
+    <string name="uploading_video_cancelled">Uploading video cancelled</string>
+    <string name="km_away">%.2f Km away</string>
+    <string name="no_minimum">No Min</string>
+    <string name="no_maximum">No Max</string>
+    <string name="age_yrs">Age (Yrs)</string>
+    <string name="height_feet_inches">Height (Feet and Inches)</string>
+    <string name="weight_pounds">Weight (Pounds)</string>
+    <string name="answer">Answer</string>
+    <string name="string">string</string>
+
+    <!--    Menu Strings-->
+    <string name="report">Report</string>
+    <string name="block">Block User</string>
+    <string name="unblock">Unblock User</string>
+    <string name="view_less">View Less</string>
+    <string name="locked_answers">This answer is locked, for this first you must input your answer.</string>
+    <string name="yrs">\ yrs</string>
+    <string name="pounds">\ pounds</string>
+    <string name="chat_contacts">Chat Contacts</string>
+    <string name="chat_requests">Chat Requests</string>
+    <string name="unblur_requests">Unblur Requests</string>
+    <string name="filter">Filters</string>
+    <string name="chats">Chats</string>
+    <string name="reset_password_token">Token</string>
+    <string name="reset">Reset</string>
+    <string name="please_enter_token">Please enter token sent to your email address</string>
+    <string name="password_reset_successfully">Password Reset Successfully</string>
+    <string name="password_changed_success">Password Changed Successfully</string>
+    <string name="alert">Alert</string>
+    <string name="request_reject_msg">Are you sure you want to reject this request?</string>
+    <string name="request_accept_msg">Are you sure you want to accept this request?</string>
+    <string name="block_user_confirmation_msg">Are you sure you want to block this user?</string>
+    <string name="unblock_user_confirmation_msg">Are you sure you want to unblock this user?</string>
+    <string name="report_user_confirmation_msg">Are you sure you want to report this user?</string>
+    <string name="clear_chat_confirmation_msg">Are you sure you want to clear this chat?</string>
+    <string name="reject">Reject Match</string>
+    <string name="accept">Accept Match</string>
+    <string name="are_you_sure">Are you sure?</string>
+    <string name="are_you_sure_delete">Are you sure you want to delete this pic?</string>
+    <string name="link_not_avaiable">Link not available</string>
+    <string name="please_enter_message">Please enter message</string>
+    <string name="slide_to_cancel">Slide to cancel</string>
+    <string name="connected">Server Connected</string>
+    <string name="disconnected">Server Dis-Connected</string>
+    <string name="reconnected">Server Reconnecting</string>
+    <string name="blind_date_accepted">Blind Date Accepted</string>
+    <string name="blind_date_declined">Blind Date Declined</string>
+    <string name="add_to_favourite">Add to favourite</string>
+    <string name="un_favourite">Unfavourite</string>
+    <string name="un_block">Unblock</string>
+    <string name="clear_chat">Clear Chat</string>
+    <string name="favourite_success">Added to favorites.</string>
+    <string name="un_favourite_success">Removed from favorites.</string>
+    <string name="only_no_preferences_msg">Either choose no preferences or other options</string>
+    <string name="empty_url">Empty Url</string>
+    <string name="password_mismatch">Passwords mismatch.</string>
+    <string name="delete">Delete</string>
+    <string name="delete_pic">Delete Pic</string>
+    <string name="delete_chat">Delete Chat</string>
+    <string name="delete_match">Delete Match</string>
+    <string name="delete_user_msg">Are you sure you want to delete chat?</string>
+    <string name="chat_cleared_successfully">Chat Cleared Successfully</string>
+    <string name="user_delete_success_msg">User Delete SuccessFully</string>
+    <string name="audio">Audio</string>
+    <string name="gif">GIF</string>
+    <string name="un_send">Unsend</string>
+    <string name="requests">Requests</string>
+    <string name="drink">Drink</string>
+    <string name="smoke_cigarettes">Smoke Cigarettes</string>
+    <string name="smoke_weed">Smoke Weed</string>
+    <string name="do_i">Do I?</string>
+    <string name="request_sent_already">You have already sent request.</string>
+    <string name="request_rejected_small">Request rejected</string>
+    <string name="unblur_request_rejected_by_other">Un-blur request rejected by other user</string>
+    <string name="chat_request_rejected_by_other">Chat request rejected by other user</string>
+    <string name="user_blocked_chat_msg">You blocked this user. Unblock user to chat again.</string>
+    <string name="today">Today</string>
+    <string name="yesterday">Yesterday</string>
+    <string name="incoming_call">Incoming Call.....</string>
+    <string name="decline">Decline</string>
+    <string name="blocked_by_other_msg">Other user blocked you. You can not chat with this user.</string>
+    <string name="calling">Calling…</string>
+    <string name="see_original_video">See original Video</string>
+    <string name="email_or_phone_validation_msg">Please enter email or phone number</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login_with_facebook">Login with Facebook</string>
+    <string name="login_with_google">Login With Google</string>
+    <string name="login_with_linkedin">Login With LinkedIn</string>
+    <string name="no_worries_we_won_t_post_anything">NO WORRIES, WE WON\'T POST ANYTHING</string>
+    <string name="looking_for">Looking for</string>
+    <string name="belief_looking_for">Looking for (Belief)</string>
+    <string name="enter_name">Enter Name</string>
+    <string name="i_am_text">I am</string>
+    <string name="my_age">My Age</string>
+    <string name="enter_here">Enter here…</string>
+    <string name="my_beliefs">My Beliefs</string>
+    <string name="my_ethnicity">My Ethnicity</string>
+    <string name="i_agree_term_condition">I agree Terms and Services</string>
+    <string name="complete_your_profile">Complete Your Profile</string>
+    <string name="select_answer">Select Answer</string>
+    <string name="submit">Submit</string>
+    <string name="please_answer_all_questions">Please answer all questions</string>
+    <string name="home">Home</string>
+    <string name="settings">Settings</string>
+    <string name="messages">Messages</string>
+    <string name="matches">Matches</string>
+    <string name="no_message_yet">No Message, Yet.</string>
+    <string name="no_message_yet_message">There are no messages yet.</string>
+    <string name="no_review_yet">There are no reviews yet.</string>
+    <string name="no_match_yet">No Match, Yet</string>
+    <string name="no_match_yet_message">There are no matches yet.</string>
+    <string name="don_t_know">Don\'t know? Take a quick test to find out.</string>
+    <string name="edit">Edit</string>
+    <string name="profle_setup_successfully">Profile setup successfully</string>
+    <string name="please_enter_the_location">Please enter the location</string>
+    <string name="like">Like</string>
+    <string name="dislike">Dislike</string>
+    <string name="write_review">Write Review</string>
+    <string name="type_your_comment_here">Type your comment here...</string>
+    <string name="good_listener">Good Listener</string>
+    <string name="response_time">Response time</string>
+    <string name="behaviour">Behavior</string>
+    <string name="close">Close</string>
+    <string name="excellent">Excellent</string>
+    <string name="very_good">Very Good</string>
+    <string name="average">Average</string>
+    <string name="poor">Poor</string>
+    <string name="terrible">Terrible</string>
+    <string name="punctuality">Punctuality</string>
+    <string name="communication">Communication</string>
+    <string name="rating">Rating</string>
+    <string name="overall_rating">Overall Rating</string>
+    <string name="personality">Personality</string>
+    <string name="loyalty">Loyalty</string>
+    <string name="satisfaction">Satisfaction</string>
+    <string name="time_punctual">Time Punctual</string>
+    <string name="reviews">Reviews</string>
+    <plurals name="review_plural">
+        <item quantity="one">(%d Review)</item>
+        <item quantity="other">(%d Reviews)</item>
+    </plurals>
+    <string name="please_give_rating">Please give rating</string>
+    <string name="review_saved_successfully">Review submitted successfully</string>
+    <string name="questions_updated_successfully">Questions updated successfully</string>
+    <string name="questions_saved_successfully">Questions saved successfully</string>
+    <string name="help">Help</string>
+    <string name="about_us">About Us</string>
+    <string name="subscription_plan">Subscription Plans</string>
+    <string name="review_your_chat_with">Review your chat with</string>
+    <string name="upload_images">Upload Images</string>
+    <string name="please_upload_your_portfolio_image">Please upload your profile images</string>
+    <string name="plus">PLUS</string>
+    <string name="one_month">$64.00</string>
+    <string name="one_month_txt">1 month</string>
+
+
+    <string name="no_ads">No ads</string>
+    <string name="multiple_pic">Upload multiple pics</string>
+    <string name="view_matches">View matches</string>
+    <string name="see_other_user_profile_pic">See other user\'s profile pic</string>
+    <string name="see_other_user_all_pic">See all pics from other users</string>
+    <string name="see_other_user_full_profile">See other user\'s full profile</string>
+    <string name="like_other_user_profile_pic">Like other user\'s profile pic</string>
+    <string name="read_receipts">Read receipts</string>
+    <string name="see_other_user_star_rating">See other user\'s star rating</string>
+    <string name="read_other_user_reviews">Read other user\'s reviews</string>
+    <string name="rate_your_chats">Rate your chats (after chatting for a bit)</string>
+    <string name="rate_your_dates">Rate your dates (when you date your matches)</string>
+    <string name="leave_user_reviews">Leave user reviews</string>
+    <string name="swipe_left_right">Swipe left or right on user</string>
+    <string name="chat_with_other_users">Chat with other users</string>
+    <string name="that_amazing">That Amazing</string>
+    <string name="_19">$19</string>
+    <string name="unlimited_users">Unlimited Users</string>
+    <string name="can_see_unlimited_amount_of_profiles">Can see unlimited amount of profiles.</string>
+    <string name="can_view_unlimited_blurred_videos_each_day">Can view unlimited blurred videos each day.</string>
+    <string name="can_access_privacy_mode_allowing_each_user_to_be_invisible_their_profile_will_not_be_available_to_other_users_but_this_user_can_access_whomever_they_d_like">Can access privacy mode allowing each user to be invisible (their profile will not be available to other users, but this user can access whomever they’d like.</string>
+    <string name="free_basic">FREE BASIC</string>
+    <string name="_0">$0</string>
+    <string name="_50_users">50 Users</string>
+    <string name="create_basic_profile">Create a basic profile</string>
+    <string name="can_filter_preferences_by_age_gender_pronoun_man_woman_trans_etc_and_for_profiles_other_than_straight_top_top_vers_vers_vers_bottom_bottom">Can filter preferences by Age, gender, pronoun (Man, woman, Trans etc.), and for profiles other than straight (Top, Top vers, vers., vers bottom, bottom.</string>
+    <string name="ads">Ads</string>
+    <string name="upload_profile_pic">Upload your profile pic</string>
+    <string name="can_view_up_to_10_un_blurred_videos_each_day">Can view up to 10 un-blurred videos each day.</string>
+    <string name="can_filter_by_age_gender_pronoun_height_weight_ethnicity_and_role_top_bottom_vers">Can filter by age, gender, pronoun, height, weight, ethnicity, and role (top, bottom, vers)</string>
+    <string name="create_full_profile">Create your full profile</string>
+    <string name="buy">buy</string>
+    <string name="was_your_match_an_active_listener_and_showed_interest_in_conversations">Was your match an active listener and showed interest in conversations?</string>
+    <string name="overall_did_your_match_usually_respond_within_24_hours">Overall, did your match usually respond within a reasonable time?</string>
+    <string name="was_your_match_respectful_during_conversations">Was your match respectful during conversations?</string>
+    <string name="was_your_date_on_time">Was your date on time?</string>
+    <string name="did_your_date_look_like_their_pics">Did your date look like their pics?</string>
+    <string name="did_your_date_s_conversations_flow_well_and_was_there_communication">Did your date\'s conversations flow well and was there communication?</string>
+    <string name="was_your_date_respectful_and_demonstrated_manners_throughout_the_time_spent_together">Was your date respectful and demonstrated manners throughout the time spent together?</string>
+    <string name="pics">Pics</string>
+    <string name="expressions_of_praise">Expressions Of Praise</string>
+    <string name="where_you_complimented">Where you complimented?</string>
+    <string name="expression_of_praise">Expression Of Praise</string>
+    <string name="not_now">Not Now</string>
+    <string name="subscribe_txt">Subscribe</string>
+    <string name="subscribe_upgrade">Upgrade</string>
+    <string name="subscribe_cancel">Cancel</string>
+    <string name="review_your_date_with">Review your date with</string>
+    <string name="expiration_date">Expiration Date : %s</string>
+    <string name="set_full_profile_msg">Complete your profile for more accurate matches</string>
+    <string name="set_profile">Set Profile</string>
+    <string name="purchase_plan_to_enable_chat">You are not subscribed. Subscribe to use this feature</string>
+    <string name="proceed">Proceed</string>
+    <string name="subscribed">Subscribed</string>
+    <string name="eula_aggrement">I have read and agree to the \nEULA agreement.</string>
+    <string name="accept_aggrement">Accept</string>
+    <string name="women_initiate">Only woman can initiate chat.</string>
+    <string name="date_review">Date Review</string>
+    <string name="chat_review">Chat Review</string>
+
+    <plurals name="rating_review_plural">
+        <item quantity="one">Based on %d Review</item>
+        <item quantity="other">Based on %d Reviews</item>
+    </plurals>
+</resources>
