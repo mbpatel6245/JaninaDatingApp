@@ -51,7 +51,7 @@ class GoogleLoginActivity : AppCompatActivity() {
                 Log.i(Constants.LOG_TAG, "GoogleLoginActivity, activityResult: RESULT_OK")
                 val data = result.data
                 val task = GoogleSignIn.getSignedInAccountFromIntent(data)
-                Log.i(Constants.LOG_TAG, "GoogleLoginActivity, activityResult: ${Gson().toJson(result.data)}")
+                //Log.i(Constants.LOG_TAG, "GoogleLoginActivity, activityResult: ${Gson().toJson(result.data)}")
                 handleSignInResult(task)
             }
             else {

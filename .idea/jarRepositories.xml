@@ -46,5 +46,20 @@
       <option name="name" value="maven2" />
       <option name="url" value="file:/$PROJECT_DIR$/powerspinner/kotlin.bintray.com/kotlinx" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven2" />
+      <option name="name" value="maven2" />
+      <option name="url" value="file:$PROJECT_DIR$/kotlin.bintray.com/kotlinx" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven2" />
+      <option name="name" value="maven2" />
+      <option name="url" value="file:$PROJECT_DIR$/app/kotlin.bintray.com/kotlinx" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven2" />
+      <option name="name" value="maven2" />
+      <option name="url" value="file:$PROJECT_DIR$/powerspinner/kotlin.bintray.com/kotlinx" />
+    </remote-repository>
   </component>
 </project>

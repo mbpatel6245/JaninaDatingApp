@@ -1,18 +1,20 @@
 {
-  "version": 2,
+  "version": 3,
   "artifactType": {
     "type": "APK",
     "kind": "Directory"
   },
   "applicationId": "com.jda.application",
-  "variantName": "processReleaseResources",
+  "variantName": "release",
   "elements": [
     {
       "type": "SINGLE",
       "filters": [],
-      "versionCode": 12,
-      "versionName": "1.0.6",
-      "outputFile": "SomeApp-v12(1.0.6)-release.apk"
+      "attributes": [],
+      "versionCode": 13,
+      "versionName": "1.0.7",
+      "outputFile": "SomeApp-v13(1.0.7)-release.apk"
     }
-  ]
+  ],
+  "elementType": "File"
 }

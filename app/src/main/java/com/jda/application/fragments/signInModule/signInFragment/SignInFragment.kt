@@ -337,7 +337,7 @@ class SignInFragment : BaseFragment(), OnItemClickListener {
                 if (result.resultCode == Activity.RESULT_OK) {
                     // There are no request codes
 
-                    Log.i(Constants.LOG_TAG, "resultLauncherGoogleLogin: result from google data is ${Gson().toJson(result.data)}")
+//                    Log.i(Constants.LOG_TAG, "resultLauncherGoogleLogin: result from google data is ${Gson().toJson(result.data)}")
 
                     val data = result.data
                     val token = data!!.getStringExtra(Constants.SocialLoginKeys.sUniqueID)
