@@ -126,7 +126,6 @@ abstract class BaseActivity : AppCompatActivity(), MVPView, OnItemClickListener 
         Toast.makeText(this, string, Toast.LENGTH_LONG).show()
     }
 
-    @RequiresApi(Build.VERSION_CODES.M)
     override fun onItemClick(item: View) {
     }
 

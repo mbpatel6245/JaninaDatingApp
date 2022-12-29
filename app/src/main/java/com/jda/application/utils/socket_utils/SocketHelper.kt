@@ -20,8 +20,12 @@ class SocketHelper {
 
     fun socketConnect() {
         try {
-            mSocket = IO.socket("${if(URLs.Retrofit.sUSE_LIVE_SERVER) URLs.Retrofit.sAPI_LIVE_BASE_URL 
-            else URLs.Retrofit.sAPI_LOCAL_BASE_URL }?token=${JDAApplication.mInstance.getProfile()?.result?.authToken}")
+            mSocket = IO.socket(
+                "${
+                    if (URLs.Retrofit.sUSE_LIVE_SERVER) URLs.Retrofit.sAPI_LIVE_BASE_URL
+                    else URLs.Retrofit.sAPI_LOCAL_BASE_URL
+                }?token=${JDAApplication.mInstance.getProfile()?.result?.authToken}"
+            )
         } catch (e: URISyntaxException) {
             Log.e("Socket", "socketConnect:  ${e.printStackTrace()} ")
             e.printStackTrace()
@@ -30,10 +34,13 @@ class SocketHelper {
         onListeners()
     }
 
-    private fun onListeners(){
+    private fun onListeners() {
 //        mIsConnectedFirstTime = true
-        Log.d("Socket", "onListeners: mSocket ${mSocket?.connected()} + mIsConnectedFirstTime $mIsConnectedFirstTime")
-        if(mSocket!=null) {
+        Log.d(
+            "Socket",
+            "onListeners: mSocket ${mSocket?.connected()} + mIsConnectedFirstTime $mIsConnectedFirstTime"
+        )
+        if (mSocket != null) {
             off()
             mSocket!!.on(Socket.EVENT_CONNECT, connectedListener)
 //            mSocket!!.on(Socket.EVENT_RECONNECT, connectedListener)
@@ -103,6 +110,10 @@ class SocketHelper {
         mSocket!!.emit(event, data)
     }
 
+    fun blockEvent(data: JSONObject) {
+        mSocket!!.emit(Constants.Socket_id.blockUserEvent, data)
+    }
+
     fun clearChat(data: JSONObject) {
         mSocket!!.emit(Constants.Socket_id.clearChatEvent, data)
     }
@@ -137,7 +148,7 @@ class SocketHelper {
 //        Log.e("Socket", "Dis-Connected-call")
         mSocket!!.disconnect();
         off()
-        mIsConnectedFirstTime=true
+        mIsConnectedFirstTime = true
     }
 
     val connectedListener = Emitter.Listener {
@@ -161,13 +172,13 @@ class SocketHelper {
 
     val newMessageArrival = Emitter.Listener {
         val data = it.get(0) as JSONObject
-        Log.e("socket", "newMessageArrival : "+data)
+        Log.e("socket", "newMessageArrival : " + data)
         callBack?.newMessageComing(data)
     }
 
     val sendMessageCallback = Emitter.Listener {
         val data = it.get(0) as JSONObject
-        Log.e("socket", "sendMessageCallback : "+data)
+        Log.e("socket", "sendMessageCallback : " + data)
         callBack?.sendMessageCallBack(data)
     }
 
