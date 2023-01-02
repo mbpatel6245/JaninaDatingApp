@@ -387,7 +387,7 @@
                     <!--                        app:thumbsTextMargin="@dimen/_8sdp"-->
                     <!--                        app:transitionColor="@color/colorRed" />-->
 
-                    <com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar
+                    <com.jda.application.utils.crystalrangeseekbar.widgets.CrystalRangeSeekbar
                         android:id="@+id/ageRangeSeekBar"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -587,7 +587,7 @@
                     <!--                        app:thumbsTextMargin="@dimen/_8sdp"-->
                     <!--                        app:transitionColor="@color/colorRed" />-->
 
-                    <com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar
+                    <com.jda.application.utils.crystalrangeseekbar.widgets.CrystalRangeSeekbar
                         android:id="@+id/heightRangeSeekBar"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

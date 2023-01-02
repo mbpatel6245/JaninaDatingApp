@@ -22,7 +22,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.text.isDigitsOnly
 import androidx.databinding.DataBindingUtil
 import com.anilokcun.uwmediapicker.UwMediaPicker
-import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarChangeListener
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.libraries.places.api.model.Place
 import com.google.android.libraries.places.widget.Autocomplete
@@ -42,7 +41,9 @@ import com.jda.application.fragments.homeFragment.HomeFragment
 import com.jda.application.fragments.questionModule.signupQuestion.QuestionsFragment
 import com.jda.application.utils.*
 import com.jda.application.utils.UserAlertUtility.Companion.showToast
-import com.rizlee.rangeseekbar.RangeSeekBar
+import com.jda.application.utils.crystalrangeseekbar.interfaces.OnRangeSeekbarChangeListener
+import com.jda.application.utils.rangeseekbar.RangeSeekBar
+
 import com.skydoves.powerspinner.PowerSpinnerView
 import kotlinx.android.synthetic.main.fragment_preferences.*
 import okhttp3.MediaType

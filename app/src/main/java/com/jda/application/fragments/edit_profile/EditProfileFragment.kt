@@ -35,7 +35,7 @@ import com.jda.application.fragments.profileModule.ProfileFetchResponse
 import com.jda.application.fragments.signInModule.preferencesFragment.*
 import com.jda.application.utils.*
 import com.jda.application.utils.UserAlertUtility.Companion.showToast
-import com.rizlee.rangeseekbar.RangeSeekBar
+
 import com.skydoves.powerspinner.PowerSpinnerView
 import kotlinx.android.synthetic.main.fragment_preferences.*
 import okhttp3.MediaType
