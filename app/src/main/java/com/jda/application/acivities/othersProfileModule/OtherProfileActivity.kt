@@ -7,29 +7,37 @@ import android.view.View
 import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SnapHelper
+import com.google.gson.Gson
 import com.jda.application.R
 import com.jda.application.acivities.JDAApplication
 import com.jda.application.adapter.ImageSliderAdapter
 import com.jda.application.adapter.OtherProfileQsAdapter
 import com.jda.application.base.activity.BaseActivity
+import com.jda.application.fragments.chatModule.BlockResponse
 import com.jda.application.fragments.homeFragment.HomeFragment
 import com.jda.application.fragments.ratingModule.RatingOverallFragment
 import com.jda.application.utils.CommonUtility.capitaliseOnlyFirstLetter
 import com.jda.application.utils.Constants
+import com.jda.application.utils.UserAlertUtility
 import com.jda.application.utils.mainReplaceStackBundle
+import com.jda.application.utils.socket_utils.SocketHelper
 import kotlinx.android.synthetic.main.action_bar_layout.view.*
 import kotlinx.android.synthetic.main.fragment_other_user_profile.*
 import org.json.JSONObject
 
 
-class OtherProfileActivity : BaseActivity(), View.OnClickListener {
+class OtherProfileActivity : BaseActivity(), View.OnClickListener, SocketHelper.CallBack {
     private var mPresenter: OtherUserProfilePresenter? = null
     private var mUserId: String? = null
     private var mIsMatch: Boolean = false
     private var mAdapterMyProfileQs: OtherProfileQsAdapter? = null
     private var quesArrayList = ArrayList<OtherUserProfileResponse.Result.Answer>()
 
-    override fun onPermissionGranted(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+    override fun onPermissionGranted(
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray
+    ) {
 
     }
 
@@ -75,14 +83,17 @@ class OtherProfileActivity : BaseActivity(), View.OnClickListener {
         dislikeOtherProfileIV.visibility = if (mIsMatch) View.GONE else View.VISIBLE
         appBarOtherProfile.tittleTv?.text = getString(R.string.profile)
         appBarOtherProfile?.backBt?.visibility = View.VISIBLE
+        appBarOtherProfile?.blockIV?.visibility = View.VISIBLE
         quesArrayList.clear()
         mPresenter = OtherUserProfilePresenterImp(this)
         hitGetProfileApi()
     }
 
     private fun initListeners() {
+
         reviewRatingTV?.setOnClickListener(this)
         appBarOtherProfile?.backBt?.setOnClickListener(this)
+        appBarOtherProfile?.blockIV?.setOnClickListener { onBlockClick() }
         dislikeOtherProfileIV?.setOnClickListener(this)
         likeOtherProfileIV?.setOnClickListener(this)
     }
@@ -117,19 +128,23 @@ class OtherProfileActivity : BaseActivity(), View.OnClickListener {
             is OtherUserProfileResponse -> {
                 //CommonUtility.setGlideImage(otherPersonIV.context, pResponse.result.image, otherPersonIV)
 //                nameAndAgeOthersTV?.text = (capitaliseOnlyFirstLetter(pResponse.result.firstName) + " " + capitaliseOnlyFirstLetter(pResponse.result.lastName) + ", " + pResponse.result.age.toString())
-                nameAndAgeOthersTV?.text = (capitaliseOnlyFirstLetter(pResponse.result.firstName) + " " + capitaliseOnlyFirstLetter(pResponse.result.lastName))
+                nameAndAgeOthersTV?.text =
+                    (capitaliseOnlyFirstLetter(pResponse.result.firstName) + " " + capitaliseOnlyFirstLetter(
+                        pResponse.result.lastName
+                    ))
                 othersLocationTV?.text = pResponse.result.location?.name
                 otherGenderTV?.text = pResponse.result.gender
                 otherAgeTV?.text = pResponse.result.age.toString()
                 otherStatusTV?.text = pResponse.result.relationshipStatus
-                otherHeightTV?.text = ("${pResponse.result.height.div(12)}\' ${pResponse.result.height.rem(12)}\"")
+                otherHeightTV?.text =
+                    ("${pResponse.result.height.div(12)}\' ${pResponse.result.height.rem(12)}\"")
                 otherEthnicityTV?.text = (TextUtils.join(", ", pResponse.result.ethinicity))
                 otherBeliefTV?.text = pResponse.result.belief
                 ratingBarOtherProfile?.rating = pResponse.result.rating?.toFloat() ?: 0f
                 reviewRatingTV.text = resources.getQuantityString(
-                        R.plurals.review_plural,
-                        pResponse.result.reviews ?: 0,
-                        pResponse.result.reviews ?: 0 //var arg
+                    R.plurals.review_plural,
+                    pResponse.result.reviews ?: 0,
+                    pResponse.result.reviews ?: 0 //var arg
                 )
 //                    "(${pResponse.result.reviews} Review)"
 
@@ -139,14 +154,15 @@ class OtherProfileActivity : BaseActivity(), View.OnClickListener {
                     for (j in 0 until stringArray.size) {
                         if (pResponse.result.lookingFor.genderId[i] - 1 == j) {
                             str =
-                                    str + stringArray[j] + if (i == pResponse.result.lookingFor.genderId.size - 1) "" else ", "
+                                str + stringArray[j] + if (i == pResponse.result.lookingFor.genderId.size - 1) "" else ", "
                         }
                     }
 
 
                 }
                 genderLookingForTV.text = str
-                ageLookingForTV.text = (pResponse.result.lookingFor.minAge.toString() + "-" + pResponse.result.lookingFor.maxAge.toString())
+                ageLookingForTV.text =
+                    (pResponse.result.lookingFor.minAge.toString() + "-" + pResponse.result.lookingFor.maxAge.toString())
 
                 val mBeliefListChoice = resources.getStringArray(R.array.religionLookingForList)
                 val string = StringBuilder()
@@ -160,11 +176,12 @@ class OtherProfileActivity : BaseActivity(), View.OnClickListener {
                     pResponse.result.lookingFor.minHeight.rem(12)
                 }\"") + "- " + ("${pResponse.result.lookingFor.maxHeight.div(12)}\' ${
                     pResponse.result.lookingFor.maxHeight.rem(
-                            12
+                        12
                     )
                 }\""))
 
-                ethnicityLookingForTV.text = (TextUtils.join(", ", pResponse.result.lookingFor.ethinicity))
+                ethnicityLookingForTV.text =
+                    (TextUtils.join(", ", pResponse.result.lookingFor.ethinicity))
                 if (pResponse.result.answers != null)
                     quesArrayList.addAll(pResponse.result.answers)
                 arrayList.add(pResponse.result.image)
@@ -207,6 +224,99 @@ class OtherProfileActivity : BaseActivity(), View.OnClickListener {
                 mainReplaceStackBundle(RatingOverallFragment(), bundle)
             }
         }
+    }
+
+    private fun onBlockClick() {
+        UserAlertUtility.openCustomDialog(
+            this, getString(R.string.block),
+            getString(R.string.block_user_confirmation_msg), null, null,
+            object : UserAlertUtility.CustomDialogClickListener {
+                override fun onYesClick() {
+                    val param = JSONObject()
+                    param.put("userId", mUserId!!)
+                    JDAApplication.mInstance.socketHelperObject!!.blockEvent(
+                        param
+                    )
+                    dislikeEvent()
+                }
+
+                override fun onNoClick() {
+
+                }
+
+            }, true
+        )
+    }
+
+    override fun onResume() {
+        super.onResume()
+        JDAApplication.mInstance.socketHelperObject!!.socketStartListener(this)
+        Log.e("Socket", "Connected-call")
+        JDAApplication.mInstance.socketHelperObject?.socketConnect()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        JDAApplication.mInstance.socketHelperObject!!.socketStartListener(null)
+        Log.e("Socket", "Dis-Connected-call")
+        JDAApplication.mInstance.socketHelperObject?.socketDisconnect()
+    }
+    override fun newMessageComing(data: JSONObject) {
+
+    }
+
+    override fun sendMessageCallBack(data: JSONObject?) {
+
+    }
+
+    override fun isTyping(isTyping: Boolean, conversationId: String) {
+
+    }
+
+    override fun socketConnected() {
+
+    }
+
+    override fun socketDisconnected() {
+
+    }
+
+    override fun socketReconnecting() {
+
+    }
+
+    override fun isReadCallBack(data: JSONObject) {
+
+    }
+
+    override fun connectCallBack(data: JSONObject?) {
+
+    }
+
+    override fun disConnectCallBack(data: JSONObject) {
+
+    }
+
+    override fun blockUser(data: JSONObject) {
+       runOnUiThread {
+            val data = Gson().fromJson<BlockResponse>(data.toString(), BlockResponse::class.java)
+            if (data.data?.blockedBy == JDAApplication.mInstance.getProfile()!!.result?._id) {
+                UserAlertUtility.showToast("User blocked successfully", this)
+                finish()
+            }
+        }
+    }
+
+    override fun unBlockUser(data: JSONObject) {
+
+    }
+
+    override fun userRated(data: JSONObject) {
+
+    }
+
+    override fun userChatCleared(data: JSONObject) {
+
     }
 
     private fun likeEvent() {
