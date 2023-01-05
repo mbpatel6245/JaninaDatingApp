@@ -238,6 +238,7 @@ class ConversationActivity : BaseActivity(), View.OnClickListener, SocketHelper.
             JDAApplication.mInstance.socketHelperObject!!.sendMessage(param)
 //            lastReadEvent(Constants.Socket_id.lastReadEvent)
             enterMessageET.setText("")
+            recreate()
         }
     }
 
@@ -248,7 +249,7 @@ class ConversationActivity : BaseActivity(), View.OnClickListener, SocketHelper.
             param.put("userId", receiverID!!)
             //  param.put("typing", isTyping)
             Log.e("typeEvent", param.toString())
-            JDAApplication.mInstance.socketHelperObject!!.typingEvent(event, param)
+            JDAApplication.mInstance.socketHelperObject?.typingEvent(event, param)
         }
     }
 
@@ -550,7 +551,7 @@ class ConversationActivity : BaseActivity(), View.OnClickListener, SocketHelper.
             param[Constants.HashMapParamKeys.sLIMIT] = limit
             param[Constants.HashMapParamKeys.sPAGE] = pageCount
             param[Constants.HashMapParamKeys.sCHAT_ID] = mChatId!!
-            presenter!!.apiGetChat(param, true)
+            presenter?.apiGetChat(param, true)
         }
     }
 

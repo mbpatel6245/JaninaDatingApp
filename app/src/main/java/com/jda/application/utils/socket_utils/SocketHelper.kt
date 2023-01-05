@@ -100,11 +100,11 @@ class SocketHelper {
     }
 
     fun typingEvent(event: String, data: JSONObject) {
-        mSocket!!.emit(event, data)
+        mSocket?.emit(event, data)
     }
 
     fun clearChat(data: JSONObject) {
-        mSocket!!.emit(Constants.Socket_id.clearChatEvent, data)
+        mSocket?.emit(Constants.Socket_id.clearChatEvent, data)
     }
 
     fun likeEvent(data: JSONObject) {
